@@ -6,24 +6,22 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import type { Options as ModifyOptions } from 'ol/interaction/Modify'
+import { never } from 'ol/events/condition.js'
+import Feature, { type FeatureLike } from 'ol/Feature.js'
+import { Geometry, LineString, MultiPoint } from 'ol/geom.js'
+import { Modify } from 'ol/interaction.js'
+import type { Options as ModifyOptions } from 'ol/interaction/Modify.js'
+import CircleStyle from 'ol/style/Circle.js'
+import Fill from 'ol/style/Fill.js'
+import Style from 'ol/style/Style.js'
 
-import Feature, { type FeatureLike } from 'ol/Feature'
-import { Geometry, LineString, MultiPoint } from 'ol/geom'
-import Style from 'ol/style/Style'
-
-import { Modify } from 'ol/interaction'
-import CircleStyle from 'ol/style/Circle'
-import Fill from 'ol/style/Fill'
-
-import { OlModify } from './ol-modify'
+import { OlModify } from './ol-modify.js'
+import { useOlLayerSelect } from './ol-select.js'
 import {
   type ModifyListener,
   useOlModifyEventListener,
-} from './use-ol-modify-event-listener'
-import isEqual from 'lodash.isequal'
-import { never } from 'ol/events/condition'
-import { useOlLayerSelect } from './ol-select'
+} from './use-ol-modify-event-listener.js'
+import type { Coordinate } from 'ol/coordinate.js'
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>
@@ -90,7 +88,7 @@ function updateModifyGeometry(
   const end = modifyCoordinates[modifyCoordinates.length - 1]
   if (!start || !end) throw new Error('Modified geometry has incorrect state')
 
-  if (!isEqual(movedStart, start) || !isEqual(movedEnd, end)) {
+  if (!isCoordinateEqual(movedStart, start) || !isCoordinateEqual(movedEnd, end)) {
     modifyCoordinates[0] = movedStart
     modifyCoordinates[modifyCoordinates.length - 1] = end
     modifyGeometry.setCoordinates(modifyCoordinates)
@@ -99,7 +97,7 @@ function updateModifyGeometry(
 }
 
 function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function (feature) {
+  event.features.forEach(function(feature) {
     const modifyGeometry = feature.get('modifyGeometry')
     if (!modifyGeometry) return
 
@@ -110,7 +108,7 @@ function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
 }
 
 function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function (feature) {
+  event.features.forEach(function(feature) {
     const originalGeometry = feature.getGeometry()
     if (!originalGeometry) return
 
@@ -145,4 +143,16 @@ export function styleWithModifyAnchorsGeometry(feature: FeatureLike) {
       image: modifyLinesStyle,
     }),
   ]
+}
+
+function isCoordinateEqual(coord: Coordinate, coord2: Coordinate) {
+  if (coord.length !== coord2.length) return false
+  for (let index = 0; index < coord.length; index++) {
+    const item = coord[index]
+    const item2 = coord2[index]
+    if (!item2 || item) return false
+    if (item !== item2) return false
+  }
+
+  return true
 }

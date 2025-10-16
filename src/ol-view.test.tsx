@@ -1,8 +1,9 @@
 import { render } from '@testing-library/react'
 import { Map } from 'ol'
-import { OlMap } from './ol-map'
-import { OlView } from './ol-view'
-import { fromLonLat } from 'ol/proj'
+import { fromLonLat } from 'ol/proj.js'
+
+import { OlMap } from './ol-map.js'
+import { OlView } from './ol-view.js'
 
 describe('OlView', () => {
   test('sets center and zoom', (done) => {

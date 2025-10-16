@@ -6,18 +6,17 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import type { Options as ModifyOptions } from 'ol/interaction/Modify'
+import Feature, { type FeatureLike } from 'ol/Feature.js'
+import { Geometry } from 'ol/geom.js'
+import { Modify } from 'ol/interaction.js'
+import type { Options as ModifyOptions } from 'ol/interaction/Modify.js'
+import Style from 'ol/style/Style.js'
 
-import Feature, { type FeatureLike } from 'ol/Feature'
-import { Geometry } from 'ol/geom'
-import Style from 'ol/style/Style'
-
-import { Modify } from 'ol/interaction'
-import { OlModify } from './ol-modify'
+import { OlModify } from './ol-modify.js'
 import {
   type ModifyListener,
   useOlModifyEventListener,
-} from './use-ol-modify-event-listener'
+} from './use-ol-modify-event-listener.js'
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>

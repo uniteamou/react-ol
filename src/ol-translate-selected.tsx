@@ -1,4 +1,3 @@
-import { Translate } from 'ol/interaction'
 import {
   forwardRef,
   type Ref,
@@ -6,8 +5,10 @@ import {
   useMemo,
   useState,
 } from 'react'
-import { useOlLayerSelect } from './ol-select'
-import { OlTranslate, type OlTranslateProps } from './ol-translate'
+import { Translate } from 'ol/interaction.js'
+
+import { useOlLayerSelect } from './ol-select.js'
+import { OlTranslate, type OlTranslateProps } from './ol-translate.js'
 
 type OlTranslateSelectedProps = OlTranslateProps
 

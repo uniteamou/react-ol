@@ -1,8 +1,8 @@
-import type { FeatureLike } from 'ol/Feature'
-import CircleStyle from 'ol/style/Circle'
-import Fill from 'ol/style/Fill'
-import Stroke from 'ol/style/Stroke'
-import Style, { type StyleFunction } from 'ol/style/Style'
+import type { FeatureLike } from 'ol/Feature.js'
+import CircleStyle from 'ol/style/Circle.js'
+import Fill from 'ol/style/Fill.js'
+import Stroke from 'ol/style/Stroke.js'
+import Style, { type StyleFunction } from 'ol/style/Style.js'
 
 export function circleStyleFunction(feature: FeatureLike) {
   const size = feature.get('size') || 10
