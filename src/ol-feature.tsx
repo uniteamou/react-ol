@@ -1,9 +1,10 @@
-import Feature from 'ol/Feature'
 import { memo, useEffect } from 'react'
-import { useOlVectorSource } from './ol-vector-source'
-import shallowEqual from './shallow-equal'
-import { circleStyleFunction } from './feature-styles'
-import type { StyleFunction } from 'ol/style/Style'
+import Feature from 'ol/Feature.js'
+import type { StyleFunction } from 'ol/style/Style.js'
+
+import { circleStyleFunction } from './feature-styles.js'
+import { useOlVectorSource } from './ol-vector-source.js'
+import shallowEqual from './shallow-equal.js'
 
 type OlFeatureProps = {
   feature: Feature

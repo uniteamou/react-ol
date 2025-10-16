@@ -9,12 +9,13 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import { useOlMap } from './ol-map'
+import type { FeatureLike } from 'ol/Feature.js'
 import VectorLayer, {
   type Options as VectorLayerOptions,
-} from 'ol/layer/Vector'
-import type { FeatureLike } from 'ol/Feature'
-import shallowEqual from './shallow-equal'
+} from 'ol/layer/Vector.js'
+
+import { useOlMap } from './ol-map.js'
+import shallowEqual from './shallow-equal.js'
 
 type OlVectorLayerProps = {
   children?: ReactNode

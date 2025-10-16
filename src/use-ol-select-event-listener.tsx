@@ -1,6 +1,6 @@
 import { Select } from 'ol/interaction.js'
 import { useEffect } from 'react'
-import { SelectEvent } from 'ol/interaction/Select'
+import { SelectEvent } from 'ol/interaction/Select.js'
 
 type SelectEventParams = Parameters<Select['on']>
 export type SelectEventType =

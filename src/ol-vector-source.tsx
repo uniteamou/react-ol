@@ -1,17 +1,18 @@
-import VectorSource from 'ol/source/Vector'
 import {
+  createContext,
   forwardRef,
+  type PropsWithChildren,
   type Ref,
   useContext,
-  createContext,
   useEffect,
   useImperativeHandle,
   useState,
-  type PropsWithChildren,
 } from 'react'
-import { useOlVectorLayer } from './ol-vector-layer'
-import Feature, { type FeatureLike } from 'ol/Feature'
-import { Geometry } from 'ol/geom'
+import Feature, { type FeatureLike } from 'ol/Feature.js'
+import { Geometry } from 'ol/geom.js'
+import VectorSource from 'ol/source/Vector.js'
+
+import { useOlVectorLayer } from './ol-vector-layer.js'
 
 type OlVectorSourceType = VectorSource<Feature<Geometry>>
 

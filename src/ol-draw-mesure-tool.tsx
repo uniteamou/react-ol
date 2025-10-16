@@ -1,13 +1,14 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { getLength } from 'ol/sphere'
-import { useOlDraw } from './ol-draw'
-import type { Feature, Overlay } from 'ol'
-import { LineString, type Geometry } from 'ol/geom'
+import type { Overlay } from 'ol'
+import { LineString, type Geometry } from 'ol/geom.js'
+import { getLength } from 'ol/sphere.js'
 
-import { useOlDrawEventListener } from './use-ol-draw-event-listener'
-import { OlOverlay } from './ol-overlay-component'
+import { useOlDraw } from './ol-draw.js'
+import { OlOverlay } from './ol-overlay-component.js'
+import { useOlDrawEventListener } from './use-ol-draw-event-listener.js'
+import type BaseEvent from 'ol/events/Event.js'
 
-type GeometryEvent = Parameters<Feature<Geometry>['on']>[1]
+type GeometryEvent = (event: Event | BaseEvent) => unknown
 type DrawEventListener = Parameters<typeof useOlDrawEventListener>[2]
 
 export function OlDrawMesureTool() {

@@ -1,6 +1,3 @@
-import ImageSource, {
-  type Options as ImageSourceOptions,
-} from 'ol-ext/source/GeoImage'
 import {
   forwardRef,
   type Ref,
@@ -8,12 +5,19 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import { useOlImageLayer } from './ol-layer-geo-image'
+import ImageSourceImport, {
+  type Options as ImageSourceOptions,
+} from 'ol-ext/source/GeoImage.js'
+
+import { useOlImageLayer } from './ol-layer-geo-image.js'
 
 type OlImageSourceProps = Omit<ImageSourceOptions, 'imageMask'> & {
   imageMask?: ImageSourceOptions['imageMask']
   imageOpacity?: number
 }
+
+const ImageSource = ImageSourceImport.default
+type ImageSource = InstanceType<typeof ImageSource>
 
 export const OlImageSource = forwardRef(function OlImageSource(
   {

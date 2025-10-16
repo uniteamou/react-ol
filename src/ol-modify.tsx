@@ -1,17 +1,18 @@
-import { Modify } from 'ol/interaction.js'
-import type { Options as ModifyOptions } from 'ol/interaction/Modify'
 import {
-  forwardRef,
-  type Ref,
-  useEffect,
-  useState,
-  useImperativeHandle,
-  type PropsWithChildren,
   createContext,
+  forwardRef,
+  type PropsWithChildren,
+  type Ref,
   useContext,
+  useEffect,
+  useImperativeHandle,
+  useState,
 } from 'react'
-import { useOlMap } from './ol-map'
-import { useOlVectorSource } from './ol-vector-source'
+import { Modify } from 'ol/interaction.js'
+import type { Options as ModifyOptions } from 'ol/interaction/Modify.js'
+
+import { useOlMap } from './ol-map.js'
+import { useOlVectorSource } from './ol-vector-source.js'
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>

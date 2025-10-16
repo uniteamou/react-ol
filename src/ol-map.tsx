@@ -10,7 +10,7 @@ import {
   useState,
 } from 'react'
 import { Map } from 'ol'
-import type { MapOptions } from 'ol/Map'
+import type { MapOptions } from 'ol/Map.js'
 
 export const OlMap = forwardRef(OlMapComponent)
 

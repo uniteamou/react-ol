@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react'
-import Geolocation, { type Options } from 'ol/Geolocation'
-import { OlVectorLayer } from './ol-vector-layer'
-import { OlVectorSource } from './ol-vector-source'
-import { useOlMap } from './ol-map'
 import { Feature } from 'ol'
-import { Point } from 'ol/geom'
-import { OlFeature } from './ol-feature'
-import { Fill, Stroke, Style } from 'ol/style'
-import CircleStyle from 'ol/style/Circle'
+import Geolocation, { type Options } from 'ol/Geolocation.js'
+import { Point } from 'ol/geom.js'
+import { Fill, Stroke, Style } from 'ol/style.js'
+import CircleStyle from 'ol/style/Circle.js'
+
+import { OlFeature } from './ol-feature.js'
+import { useOlMap } from './ol-map.js'
+import { OlVectorLayer } from './ol-vector-layer.js'
+import { OlVectorSource } from './ol-vector-source.js'
 
 const userLocationStyleFn = () =>
   new Style({

@@ -9,11 +9,15 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import { useOlMap } from './ol-map'
-import LayerGeoImage from 'ol-ext/layer/GeoImage'
-import shallowEqual from './shallow-equal'
-import type { Options } from 'ol/layer/BaseImage'
-import ImageSource from 'ol/source/Image'
+import LayerGeoImageImport from 'ol-ext/layer/GeoImage.js'
+import type { Options } from 'ol/layer/BaseImage.js'
+import ImageSource from 'ol/source/Image.js'
+
+import { useOlMap } from './ol-map.js'
+import shallowEqual from './shallow-equal.js'
+
+const LayerGeoImage = LayerGeoImageImport.default
+type LayerGeoImage = InstanceType<typeof LayerGeoImage>
 
 type OlLayerGeoImageProps = Options<ImageSource> & {
   children?: ReactNode

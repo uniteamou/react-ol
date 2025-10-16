@@ -8,10 +8,11 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import TileLayer from 'ol/layer/Tile'
-import TileSource from 'ol/source/Tile'
-import { useOlMap } from './ol-map'
-import type { Options } from 'ol/layer/BaseTile'
+import type { Options } from 'ol/layer/BaseTile.js'
+import TileLayer from 'ol/layer/Tile.js'
+import TileSource from 'ol/source/Tile.js'
+
+import { useOlMap } from './ol-map.js'
 
 export const OlTileLayer = forwardRef(OlTileLayerComponent)
 

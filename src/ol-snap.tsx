@@ -1,16 +1,17 @@
-import { Snap } from 'ol/interaction.js'
-import type { Options as SnapOptions } from 'ol/interaction/Snap'
 import {
+  createContext,
   forwardRef,
   type Ref,
-  useEffect,
-  useState,
-  useImperativeHandle,
   useContext,
-  createContext,
+  useEffect,
+  useImperativeHandle,
+  useState,
 } from 'react'
-import { useOlMap } from './ol-map'
-import { useOlVectorSource } from './ol-vector-source'
+import { Snap } from 'ol/interaction.js'
+import type { Options as SnapOptions } from 'ol/interaction/Snap.js'
+
+import { useOlMap } from './ol-map.js'
+import { useOlVectorSource } from './ol-vector-source.js'
 
 type OlSnapProps = React.PropsWithChildren<{
   initialOptions?: Partial<SnapOptions>

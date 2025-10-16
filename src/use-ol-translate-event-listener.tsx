@@ -1,7 +1,8 @@
-import { Translate } from 'ol/interaction.js'
 import { useEffect } from 'react'
-import { TranslateEvent } from 'ol/interaction/Translate'
-import type TranslateMiddle from './translate-middle'
+import { Translate } from 'ol/interaction.js'
+import { TranslateEvent } from 'ol/interaction/Translate.js'
+
+import type TranslateMiddle from './translate-middle.js'
 
 type TranslateEventParams = Parameters<Translate['on']>
 export type TranslateEventType =

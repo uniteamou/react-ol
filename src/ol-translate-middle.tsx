@@ -1,16 +1,17 @@
-import type { Options as TranslateOptions } from 'ol/interaction/Translate'
 import {
-  forwardRef,
-  type Ref,
-  useEffect,
-  useState,
-  useImperativeHandle,
   createContext,
-  useContext,
+  forwardRef,
   type PropsWithChildren,
+  type Ref,
+  useContext,
+  useEffect,
+  useImperativeHandle,
+  useState,
 } from 'react'
-import { useOlMap } from './ol-map'
-import TranslateMiddle from './translate-middle'
+import type { Options as TranslateOptions } from 'ol/interaction/Translate.js'
+
+import { useOlMap } from './ol-map.js'
+import TranslateMiddle from './translate-middle.js'
 
 export type OlTranslateMiddleProps = PropsWithChildren<{
   initialOptions?: TranslateOptions

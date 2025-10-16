@@ -20,19 +20,20 @@
 
     /* If transpiling with TypeScript: */
     "module": "NodeNext",
-    "outDir": "lib",
     "sourceMap": true,
 
     /* AND if you're building for a library: */
     "declaration": true,
+    "outDir": "lib",
+    "declarationDir": "./lib/types",
 
     /* If your code runs in the DOM: */
     "lib": ["es2022", "dom", "dom.iterable"],
     "incremental": true,
 
-    "moduleResolution": "NodeNext",
+    "allowSyntheticDefaultImports": true,
     "jsx": "preserve",
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "lib"]
+  "exclude": ["node_modules", "lib", "**/*.test.ts", "**/*.test.tsx"]
 }

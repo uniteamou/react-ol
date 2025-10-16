@@ -1,22 +1,22 @@
 import {
+  createContext,
   forwardRef,
   type Ref,
-  useEffect,
-  useState,
-  useImperativeHandle,
   useContext,
-  createContext,
+  useEffect,
+  useImperativeHandle,
   useRef,
+  useState,
 } from 'react'
-import { useOlMap } from './ol-map'
 import { Overlay } from 'ol'
-import type { NonUndefined } from 'react-hook-form'
+
+import { useOlMap } from './ol-map.js'
 
 type OverlayOptions = ConstructorParameters<typeof Overlay>[0]
 
 type OlOverlayProps = OverlayOptions &
   React.PropsWithChildren<{
-    className?: NonUndefined<React.HTMLAttributes<HTMLDivElement>['className']>
+    className?: Required<React.HTMLAttributes<HTMLDivElement>['className']>
     wrapperDivElementProps?: React.HTMLAttributes<HTMLDivElement>
   }>
 
