@@ -1,6 +1,6 @@
 import { Modify } from 'ol/interaction.js'
 import { useEffect } from 'react'
-import { ModifyEvent } from 'ol/interaction/Modify'
+import { ModifyEvent } from 'ol/interaction/Modify.js'
 
 type ModifyEventParams = Parameters<Modify['on']>
 export type ModifyEventType =

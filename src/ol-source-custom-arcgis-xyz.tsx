@@ -5,10 +5,11 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import { useOlTileLayer } from './ol-tile-layer'
-import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ'
-import { getTopLeft } from 'ol/extent'
-import { get as getProjection } from 'ol/proj'
+import { getTopLeft } from 'ol/extent.js'
+import { get as getProjection } from 'ol/proj.js'
+import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ.js'
+
+import { useOlTileLayer } from './ol-tile-layer.js'
 
 class ArcGISImageServerXYZ extends XYZ {
   private baseBBOXUrl: string | undefined
