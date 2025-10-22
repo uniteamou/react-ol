@@ -88,7 +88,10 @@ function updateModifyGeometry(
   const end = modifyCoordinates[modifyCoordinates.length - 1]
   if (!start || !end) throw new Error('Modified geometry has incorrect state')
 
-  if (!isCoordinateEqual(movedStart, start) || !isCoordinateEqual(movedEnd, end)) {
+  if (
+    !isCoordinateEqual(movedStart, start) ||
+    !isCoordinateEqual(movedEnd, end)
+  ) {
     modifyCoordinates[0] = movedStart
     modifyCoordinates[modifyCoordinates.length - 1] = end
     modifyGeometry.setCoordinates(modifyCoordinates)
@@ -97,7 +100,7 @@ function updateModifyGeometry(
 }
 
 function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function(feature) {
+  event.features.forEach(function (feature) {
     const modifyGeometry = feature.get('modifyGeometry')
     if (!modifyGeometry) return
 
@@ -108,7 +111,7 @@ function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
 }
 
 function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function(feature) {
+  event.features.forEach(function (feature) {
     const originalGeometry = feature.getGeometry()
     if (!originalGeometry) return
 
