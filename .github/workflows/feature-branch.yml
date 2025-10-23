@@ -38,7 +38,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22.3.0"
-      - run: npm install
+      - run: npm ci
       - run: npm run lint
 
       - name: Run Prettier and try to fix issues
@@ -61,7 +61,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22.3.0"
-      - run: npm install
+      - run: npm ci
 
       - name: Run Prettier and try to fix issues
         run: npm run test
