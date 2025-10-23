@@ -1,0 +1,67 @@
+name: Webapp
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - "src/**"
+      - "./.eslintrc.json"
+      - "./.eslintrignore"
+      - "./.prettierignore"
+      - "./.prettierrc"
+      - "./.jest.config.mjs"
+      - "./.jest.setup.js"
+      - ".github/workflows/feature-branch.yml"
+  push:
+    branches:
+      - main
+      - UNI-55/introduce-ci
+    paths:
+      - "src/**"
+      - "./.eslintrc.json"
+      - "./.eslintrignore"
+      - "./.prettierignore"
+      - "./.prettierrc"
+      - "./.jest.config.mjs"
+      - "./.jest.setup.js"
+      - ".github/workflows/feature-branch.yml"
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.3.0"
+      - run: npm install
+      - run: npm run lint
+
+      - name: Run Prettier and try to fix issues
+        run: npx prettier --write .
+
+      - name: Fail if Prettier made changes
+        run: |
+          if ! git diff --quiet; then
+            echo "Prettier found unformatted files:"
+            git diff --name-only
+            echo ""
+            echo "Please run 'npx prettier --write .' locally and commit the changes."
+            exit 1
+          fi
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22.3.0"
+      - run: npm install
+
+      - name: Run Prettier and try to fix issues
+        run: npm run test
