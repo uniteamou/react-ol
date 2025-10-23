@@ -1,4 +1,4 @@
-name: Webapp
+name: Feature Branch
 
 on:
   pull_request:
