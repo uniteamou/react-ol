@@ -75,7 +75,6 @@
   "peerDependencies": {
     "ol": "^9.2.4",
     "ol-ext": "^4.0.23",
-    "openlayers-ext": "^3.1.5",
     "react": "^18",
     "react-dom": "^18"
   }
