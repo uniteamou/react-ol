@@ -8,20 +8,6 @@
   "files": [
     "lib/**/*"
   ],
-  "release": {
-    "branches": [
-      "main"
-    ],
-    "dryRun": true,
-    "plugins": [
-      [
-        "@semantic-release/npm",
-        {
-          "npmPublish": false
-        }
-      ]
-    ]
-  },
   "publishConfig": {
     "access": "public"
   },
