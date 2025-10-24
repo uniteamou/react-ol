@@ -42,7 +42,8 @@
   "scripts": {
     "clean": "del-cli ./lib",
     "build": "npm run clean && tsc -p ./tsconfig.json",
-    "test": "node --experimental-strip-types --test",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "semantic-release": "semantic-release",
     "lint": "eslint ./src/*",
     "format": "prettier ./src/* --write",
@@ -50,7 +51,10 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@testing-library/jest-dom": "^6.4.8",
+    "@testing-library/react": "^16.0.0",
     "@types/eslint__js": "^8.42.3",
+    "@types/jest": "^29.5.14",
     "@types/node": "^22.12.0",
     "@types/ol": "^7.0.0",
     "@types/ol-ext": "npm:@siedlerchr/types-ol-ext@^3.5.0",
@@ -60,8 +64,12 @@
     "del-cli": "^6.0.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "prettier": "3.3.3",
     "semantic-release": "^24.2.1",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {
