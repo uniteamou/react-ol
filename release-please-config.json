@@ -2,7 +2,7 @@
   "packages": {
     ".": {
       "release-type": "node",
-      "package-name": "@uniteamou/react-ol",
+      "package-name": "react-ol",
       "changelog-path": "CHANGELOG.md",
       "extra-files": [
         "package.json"
