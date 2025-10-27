@@ -64,7 +64,7 @@ function updateModifyGeometry(
 }
 
 function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function(feature) {
+  event.features.forEach(function (feature) {
     const modifyGeometry = feature.get('modifyGeometry')
     if (!modifyGeometry) return
 
@@ -74,7 +74,7 @@ function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
 }
 
 function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function(feature) {
+  event.features.forEach(function (feature) {
     if (!feature || !feature.getGeometry()) return
 
     feature.set(
