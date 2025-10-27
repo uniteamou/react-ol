@@ -11,8 +11,8 @@ import {
 import { Select } from 'ol/interaction.js'
 import type { Options as SelectOptions } from 'ol/interaction/Select.js'
 
-import { useOlMap } from './ol-map.js'
-import { useOlVectorLayer } from './ol-vector-layer.js'
+import { useOlMap } from './ol-map.jsx'
+import { useOlVectorLayer } from './ol-vector-layer.jsx'
 
 type OlFeatureSelectProps = PropsWithChildren<{
   initialOptions?: SelectOptions

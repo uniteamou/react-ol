@@ -10,7 +10,7 @@ import {
 } from 'react'
 import type { Options as TranslateOptions } from 'ol/interaction/Translate.js'
 
-import { useOlMap } from './ol-map.js'
+import { useOlMap } from './ol-map.jsx'
 import TranslateMiddle from './translate-middle.js'
 
 export type OlTranslateMiddleProps = PropsWithChildren<{

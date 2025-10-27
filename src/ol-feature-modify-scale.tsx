@@ -14,7 +14,7 @@ import CircleStyle from 'ol/style/Circle.js'
 import Fill from 'ol/style/Fill.js'
 import Style from 'ol/style/Style.js'
 
-import { OlModify } from './ol-modify.js'
+import { OlModify } from './ol-modify.jsx'
 import {
   type ModifyListener,
   useOlModifyEventListener,
@@ -87,7 +87,7 @@ function updateModifyGeometry(
 }
 
 function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function (feature) {
+  event.features.forEach(function(feature) {
     const modifyGeometry = feature.get('modifyGeometry')
     if (!modifyGeometry) return
 
@@ -97,7 +97,7 @@ function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
 }
 
 function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function (feature) {
+  event.features.forEach(function(feature) {
     if (!feature || !feature.getGeometry()) return
 
     feature.set(
@@ -154,7 +154,7 @@ function calculateCenter(geometry: Geometry) {
   let sqDistances: number[] = []
   if (coordinates) {
     sqDistances = coordinates
-      .map(function (coordinate) {
+      .map(function(coordinate) {
         if (!coordinate[0] || !coordinate[1] || !center[0] || !center[1])
           return -1
         const dx = coordinate[0] - center[0]

@@ -12,7 +12,7 @@ import Feature, { type FeatureLike } from 'ol/Feature.js'
 import { Geometry } from 'ol/geom.js'
 import VectorSource from 'ol/source/Vector.js'
 
-import { useOlVectorLayer } from './ol-vector-layer.js'
+import { useOlVectorLayer } from './ol-vector-layer.jsx'
 
 type OlVectorSourceType = VectorSource<Feature<Geometry>>
 

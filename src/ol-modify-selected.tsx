@@ -1,7 +1,7 @@
 import type React from 'react'
 
-import { OlModify } from './ol-modify.js'
-import { useOlLayerSelect } from './ol-select.js'
+import { OlModify } from './ol-modify.jsx'
+import { useOlLayerSelect } from './ol-select.jsx'
 
 export function OlModifySelected(props: React.PropsWithChildren) {
   const select = useOlLayerSelect()

@@ -9,7 +9,7 @@ import ImageSourceImport, {
   type Options as ImageSourceOptions,
 } from 'ol-ext/source/GeoImage.js'
 
-import { useOlImageLayer } from './ol-layer-geo-image.js'
+import { useOlImageLayer } from './ol-layer-geo-image.jsx'
 
 type OlImageSourceProps = Omit<ImageSourceOptions, 'imageMask'> & {
   imageMask?: ImageSourceOptions['imageMask']

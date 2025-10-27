@@ -15,8 +15,8 @@ import CircleStyle from 'ol/style/Circle.js'
 import Fill from 'ol/style/Fill.js'
 import Style from 'ol/style/Style.js'
 
-import { OlModify } from './ol-modify.js'
-import { useOlLayerSelect } from './ol-select.js'
+import { OlModify } from './ol-modify.jsx'
+import { useOlLayerSelect } from './ol-select.jsx'
 import {
   type ModifyListener,
   useOlModifyEventListener,
@@ -100,7 +100,7 @@ function updateModifyGeometry(
 }
 
 function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function (feature) {
+  event.features.forEach(function(feature) {
     const modifyGeometry = feature.get('modifyGeometry')
     if (!modifyGeometry) return
 
@@ -111,7 +111,7 @@ function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
 }
 
 function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function (feature) {
+  event.features.forEach(function(feature) {
     const originalGeometry = feature.getGeometry()
     if (!originalGeometry) return
 

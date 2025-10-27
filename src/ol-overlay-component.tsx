@@ -10,7 +10,7 @@ import {
 } from 'react'
 import { Overlay } from 'ol'
 
-import { useOlMap } from './ol-map.js'
+import { useOlMap } from './ol-map.jsx'
 
 type OverlayOptions = ConstructorParameters<typeof Overlay>[0]
 

@@ -5,10 +5,10 @@ import { Point } from 'ol/geom.js'
 import { Fill, Stroke, Style } from 'ol/style.js'
 import CircleStyle from 'ol/style/Circle.js'
 
-import { OlFeature } from './ol-feature.js'
-import { useOlMap } from './ol-map.js'
-import { OlVectorLayer } from './ol-vector-layer.js'
-import { OlVectorSource } from './ol-vector-source.js'
+import { OlFeature } from './ol-feature.jsx'
+import { useOlMap } from './ol-map.jsx'
+import { OlVectorLayer } from './ol-vector-layer.jsx'
+import { OlVectorSource } from './ol-vector-source.jsx'
 
 const userLocationStyleFn = () =>
   new Style({

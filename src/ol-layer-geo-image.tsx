@@ -13,7 +13,7 @@ import LayerGeoImageImport from 'ol-ext/layer/GeoImage.js'
 import type { Options } from 'ol/layer/BaseImage.js'
 import ImageSource from 'ol/source/Image.js'
 
-import { useOlMap } from './ol-map.js'
+import { useOlMap } from './ol-map.jsx'
 import shallowEqual from './shallow-equal.js'
 
 const LayerGeoImage = LayerGeoImageImport.default

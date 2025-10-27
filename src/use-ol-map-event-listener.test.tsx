@@ -3,7 +3,7 @@ import { render, renderHook } from '@testing-library/react'
 import { Map } from 'ol'
 import OlEvent from 'ol/events/Event.js'
 
-import { OlMap } from './ol-map.js'
+import { OlMap } from './ol-map.jsx'
 import {
   type MapEventType,
   useOlMapEventListener,

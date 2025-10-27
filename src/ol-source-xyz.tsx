@@ -7,7 +7,7 @@ import {
 } from 'react'
 import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ.js'
 
-import { useOlTileLayer } from './ol-tile-layer.js'
+import { useOlTileLayer } from './ol-tile-layer.jsx'
 
 export const OlSourceXYZ = forwardRef(OlSourceXYZComponent)
 

@@ -7,7 +7,7 @@ import {
 } from 'react'
 import TileArcGISRest, { type Options } from 'ol/source/TileArcGISRest.js'
 
-import { useOlTileLayer } from './ol-tile-layer.js'
+import { useOlTileLayer } from './ol-tile-layer.jsx'
 
 export const OlSourceTileArcGISRest = forwardRef(
   OlSourceTileArcGISRestComponent

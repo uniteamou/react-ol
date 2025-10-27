@@ -2,7 +2,7 @@ import { StrictMode, useEffect, useRef } from 'react'
 import { render } from '@testing-library/react'
 import { Map } from 'ol'
 
-import { OlMap, useOlMap } from './ol-map.js'
+import { OlMap, useOlMap } from './ol-map.jsx'
 
 describe('OlMap', () => {
   test('renders DOM element', () => {

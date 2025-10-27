@@ -14,7 +14,7 @@ import VectorLayer, {
   type Options as VectorLayerOptions,
 } from 'ol/layer/Vector.js'
 
-import { useOlMap } from './ol-map.js'
+import { useOlMap } from './ol-map.jsx'
 import shallowEqual from './shallow-equal.js'
 
 type OlVectorLayerProps = {

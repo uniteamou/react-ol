@@ -3,7 +3,7 @@ import Feature from 'ol/Feature.js'
 import type { StyleFunction } from 'ol/style/Style.js'
 
 import { circleStyleFunction } from './feature-styles.js'
-import { useOlVectorSource } from './ol-vector-source.js'
+import { useOlVectorSource } from './ol-vector-source.jsx'
 import shallowEqual from './shallow-equal.js'
 
 type OlFeatureProps = {

@@ -11,8 +11,8 @@ import {
 import { Modify } from 'ol/interaction.js'
 import type { Options as ModifyOptions } from 'ol/interaction/Modify.js'
 
-import { useOlMap } from './ol-map.js'
-import { useOlVectorSource } from './ol-vector-source.js'
+import { useOlMap } from './ol-map.jsx'
+import { useOlVectorSource } from './ol-vector-source.jsx'
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>

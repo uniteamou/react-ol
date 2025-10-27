@@ -3,8 +3,8 @@ import type { Overlay } from 'ol'
 import { LineString, type Geometry } from 'ol/geom.js'
 import { getLength } from 'ol/sphere.js'
 
-import { useOlDraw } from './ol-draw.js'
-import { OlOverlay } from './ol-overlay-component.js'
+import { useOlDraw } from './ol-draw.jsx'
+import { OlOverlay } from './ol-overlay-component.jsx'
 import { useOlDrawEventListener } from './use-ol-draw-event-listener.js'
 import type BaseEvent from 'ol/events/Event.js'
 

@@ -12,7 +12,7 @@ import type { Options } from 'ol/layer/BaseTile.js'
 import TileLayer from 'ol/layer/Tile.js'
 import TileSource from 'ol/source/Tile.js'
 
-import { useOlMap } from './ol-map.js'
+import { useOlMap } from './ol-map.jsx'
 
 export const OlTileLayer = forwardRef(OlTileLayerComponent)
 

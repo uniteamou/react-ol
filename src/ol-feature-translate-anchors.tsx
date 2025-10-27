@@ -3,8 +3,8 @@ import { LineString, Point } from 'ol/geom.js'
 import { Fill, Style } from 'ol/style.js'
 import CircleStyle from 'ol/style/Circle.js'
 
-import { type OlTranslateProps } from './ol-translate.js'
-import { OlTranslateMiddle } from './ol-translate-middle.js'
+import { type OlTranslateProps } from './ol-translate.jsx'
+import { OlTranslateMiddle } from './ol-translate-middle.jsx'
 
 export function OlFeatureTranslateAnchors(props: OlTranslateProps) {
   return (

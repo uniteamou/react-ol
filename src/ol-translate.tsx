@@ -11,8 +11,8 @@ import {
 import { Translate } from 'ol/interaction.js'
 import type { Options as TranslateOptions } from 'ol/interaction/Translate.js'
 
-import { useOlMap } from './ol-map.js'
-import { useOlVectorLayer } from './ol-vector-layer.js'
+import { useOlMap } from './ol-map.jsx'
+import { useOlVectorLayer } from './ol-vector-layer.jsx'
 
 export type OlTranslateProps = PropsWithChildren<{
   initialOptions?: TranslateOptions

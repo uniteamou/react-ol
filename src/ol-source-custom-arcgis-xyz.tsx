@@ -9,7 +9,7 @@ import { getTopLeft } from 'ol/extent.js'
 import { get as getProjection } from 'ol/proj.js'
 import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ.js'
 
-import { useOlTileLayer } from './ol-tile-layer.js'
+import { useOlTileLayer } from './ol-tile-layer.jsx'
 
 class ArcGISImageServerXYZ extends XYZ {
   private baseBBOXUrl: string | undefined

@@ -10,8 +10,8 @@ import {
 import { Draw } from 'ol/interaction.js'
 import type { Options as DrawOptions } from 'ol/interaction/Draw.js'
 
-import { useOlMap } from './ol-map.js'
-import { useOlVectorSource } from './ol-vector-source.js'
+import { useOlMap } from './ol-map.jsx'
+import { useOlVectorSource } from './ol-vector-source.jsx'
 
 type OlDrawProps = {
   initialOptions?: Partial<DrawOptions>

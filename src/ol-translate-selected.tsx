@@ -7,8 +7,8 @@ import {
 } from 'react'
 import { Translate } from 'ol/interaction.js'
 
-import { useOlLayerSelect } from './ol-select.js'
-import { OlTranslate, type OlTranslateProps } from './ol-translate.js'
+import { useOlLayerSelect } from './ol-select.jsx'
+import { OlTranslate, type OlTranslateProps } from './ol-translate.jsx'
 
 type OlTranslateSelectedProps = OlTranslateProps
 
