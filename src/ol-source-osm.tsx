@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import OSM, { type Options } from 'ol/source/OSM.js'
 
 import { useOlTileLayer } from './ol-tile-layer.jsx'

@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import type { Feature } from 'ol'
 import type { Geometry } from 'ol/geom.js'
 

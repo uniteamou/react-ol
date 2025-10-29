@@ -1,4 +1,4 @@
-import {
+import React, {
   forwardRef,
   type PropsWithChildren,
   type Ref,
@@ -11,7 +11,7 @@ import Feature, { type FeatureLike } from 'ol/Feature.js'
 import { Geometry, LineString, MultiPoint } from 'ol/geom.js'
 import { Modify } from 'ol/interaction.js'
 import type { Options as ModifyOptions } from 'ol/interaction/Modify.js'
-import CircleStyle from 'ol/style/Circle.js'
+import Circle from 'ol/style/Circle.js'
 import Fill from 'ol/style/Fill.js'
 import Style from 'ol/style/Style.js'
 
@@ -123,7 +123,7 @@ function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
   })
 }
 
-const modifyLinesStyle = new CircleStyle({
+const modifyLinesStyle = new Circle({
   radius: 6,
   fill: new Fill({ color: 'blue' }),
 })

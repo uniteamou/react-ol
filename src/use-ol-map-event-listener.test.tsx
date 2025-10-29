@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { render, renderHook } from '@testing-library/react'
 import { Map } from 'ol'
 import OlEvent from 'ol/events/Event.js'

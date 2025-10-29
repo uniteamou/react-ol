@@ -1,4 +1,4 @@
-import { StrictMode, useEffect, useRef } from 'react'
+import React, { StrictMode, useEffect, useRef } from 'react'
 import { render } from '@testing-library/react'
 import { Map } from 'ol'
 

@@ -1,5 +1,5 @@
 import type { FeatureLike } from 'ol/Feature.js'
-import CircleStyle from 'ol/style/Circle.js'
+import Circle from 'ol/style/Circle.js'
 import Fill from 'ol/style/Fill.js'
 import Stroke from 'ol/style/Stroke.js'
 import Style, { type StyleFunction } from 'ol/style/Style.js'
@@ -14,7 +14,7 @@ export function circleStyleFunction(feature: FeatureLike) {
       color: strokeColor,
       width: strokeWidth,
     }),
-    image: new CircleStyle({
+    image: new Circle({
       radius: size,
       fill: new Fill({
         color: fillColor,

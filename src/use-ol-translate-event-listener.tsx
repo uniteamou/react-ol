@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Translate } from 'ol/interaction.js'
 import { TranslateEvent } from 'ol/interaction/Translate.js'
 

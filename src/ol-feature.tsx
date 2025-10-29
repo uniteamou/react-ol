@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react'
+import React, { memo, useEffect } from 'react'
 import Feature from 'ol/Feature.js'
 import type { StyleFunction } from 'ol/style/Style.js'
 

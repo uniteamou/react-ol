@@ -1,3 +1,4 @@
+import React from 'react'
 import { render } from '@testing-library/react'
 import { Map } from 'ol'
 import { fromLonLat } from 'ol/proj.js'

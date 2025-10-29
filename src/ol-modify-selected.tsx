@@ -1,4 +1,4 @@
-import type React from 'react'
+import React from 'react'
 
 import { OlModify } from './ol-modify.jsx'
 import { useOlLayerSelect } from './ol-select.jsx'

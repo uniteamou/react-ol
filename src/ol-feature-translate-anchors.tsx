@@ -1,7 +1,9 @@
+import React from 'react'
 import type { FeatureLike } from 'ol/Feature.js'
 import { LineString, Point } from 'ol/geom.js'
-import { Fill, Style } from 'ol/style.js'
-import CircleStyle from 'ol/style/Circle.js'
+import Circle from 'ol/style/Circle.js'
+import Fill from 'ol/style/Fill.js'
+import Style from 'ol/style/Style.js'
 
 import { type OlTranslateProps } from './ol-translate.jsx'
 import { OlTranslateMiddle } from './ol-translate-middle.jsx'
@@ -14,7 +16,7 @@ export function OlFeatureTranslateAnchors(props: OlTranslateProps) {
   )
 }
 
-const translateLinesStyle = new CircleStyle({
+const translateLinesStyle = new Circle({
   radius: 6,
   fill: new Fill({ color: 'red' }),
 })
