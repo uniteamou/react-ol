@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.5](https://github.com/uniteamou/react-ol/compare/v0.0.4...v0.0.5) (2025-10-30)
+
+
+### Bug Fixes
+
+* fix name for package ([29a4dea](https://github.com/uniteamou/react-ol/commit/29a4deaf34708a4291037d8933eb04107a8f8ff5))
+
 ## [0.0.4](https://github.com/uniteamou/react-ol/compare/v0.0.3...v0.0.4) (2025-10-30)
 
 
