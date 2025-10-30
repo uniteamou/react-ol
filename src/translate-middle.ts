@@ -1,11 +1,11 @@
 import { Collection, Feature } from 'ol'
-import type { Coordinate } from 'ol/coordinate.js'
-import type { Geometry } from 'ol/geom.js'
-import { LineString } from 'ol/geom.js'
-import { Translate } from 'ol/interaction.js'
-import { TranslateEvent, type Options } from 'ol/interaction/Translate.js'
+import type { Coordinate } from 'ol/coordinate'
+import type { Geometry } from 'ol/geom'
+import { LineString } from 'ol/geom'
+import { Translate } from 'ol/interaction'
+import { TranslateEvent, type Options } from 'ol/interaction/Translate'
 import type { Map, MapBrowserEvent } from 'ol'
-import type { Pixel } from 'ol/pixel.js'
+import type { Pixel } from 'ol/pixel'
 
 /** Copied from Translate interaction **/
 const TranslateEventType = {

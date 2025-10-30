@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   forwardRef,
   type Ref,
@@ -10,7 +10,7 @@ import {
 } from 'react'
 import { Overlay } from 'ol'
 
-import { useOlMap } from './ol-map.js'
+import { useOlMap } from './ol-map'
 
 type OverlayOptions = ConstructorParameters<typeof Overlay>[0]
 

@@ -1,13 +1,13 @@
-import {
+import React, {
   forwardRef,
   type Ref,
   useEffect,
   useImperativeHandle,
   useState,
 } from 'react'
-import TileArcGISRest, { type Options } from 'ol/source/TileArcGISRest.js'
+import TileArcGISRest, { type Options } from 'ol/source/TileArcGISRest'
 
-import { useOlTileLayer } from './ol-tile-layer.js'
+import { useOlTileLayer } from './ol-tile-layer'
 
 export const OlSourceTileArcGISRest = forwardRef(
   OlSourceTileArcGISRestComponent

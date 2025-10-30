@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react'
-import OSM, { type Options } from 'ol/source/OSM.js'
+import React, { useEffect, useState } from 'react'
+import OSM, { type Options } from 'ol/source/OSM'
 
-import { useOlTileLayer } from './ol-tile-layer.js'
+import { useOlTileLayer } from './ol-tile-layer'
 
 type OlTileSouceProps = {
   initialOptions?: Options

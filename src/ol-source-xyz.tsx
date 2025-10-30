@@ -1,13 +1,13 @@
-import {
+import React, {
   forwardRef,
   type Ref,
   useEffect,
   useImperativeHandle,
   useState,
 } from 'react'
-import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ.js'
+import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ'
 
-import { useOlTileLayer } from './ol-tile-layer.js'
+import { useOlTileLayer } from './ol-tile-layer'
 
 export const OlSourceXYZ = forwardRef(OlSourceXYZComponent)
 

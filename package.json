@@ -3,8 +3,15 @@
   "version": "0.0.1",
   "description": "A lightweight React wrapper for OpenLayers — build interactive maps declaratively using components and hooks.",
   "type": "module",
-  "types": "./lib/index.d.ts",
+  "sideEffects": false,
   "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.js"
+    }
+  },
   "files": [
     "lib/**/*"
   ],
@@ -27,7 +34,8 @@
   "homepage": "https://github.com/uniteamou/react-ol#readme",
   "scripts": {
     "clean": "del-cli ./lib",
-    "build": "npm run clean && tsc -p ./tsconfig.json",
+    "build": "tsup",
+    "build:watch": "tsup --watch",
     "test": "jest",
     "test:watch": "jest --watch",
     "semantic-release": "semantic-release",
@@ -56,6 +64,7 @@
     "semantic-release": "^24.2.1",
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
+    "tsup": "^8.3.5",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {

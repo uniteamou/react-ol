@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View } from 'ol'
-import type { ViewOptions } from 'ol/View.js'
+import type { ViewOptions } from 'ol/View'
 
-import { useOlMap } from './ol-map.js'
+import { useOlMap } from './ol-map'
 
 type OlViewProps = ViewOptions & {
   center?: number[]

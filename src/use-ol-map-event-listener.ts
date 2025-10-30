@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { Map } from 'ol'
-import type { ListenerFunction } from 'ol/events.js'
-import type { MapEventHandler } from 'ol/Map.js'
+import type { ListenerFunction } from 'ol/events'
+import type { MapEventHandler } from 'ol/Map'
 
 type MapEvenHadlerParams = Parameters<MapEventHandler<void>>
 export type MapEventType = MapEvenHadlerParams[0][0]

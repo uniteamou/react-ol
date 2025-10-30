@@ -1,18 +1,20 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Feature } from 'ol'
-import Geolocation, { type Options } from 'ol/Geolocation.js'
-import { Point } from 'ol/geom.js'
-import { Fill, Stroke, Style } from 'ol/style.js'
-import CircleStyle from 'ol/style/Circle.js'
+import Geolocation, { type Options } from 'ol/Geolocation'
+import { Point } from 'ol/geom'
+import Circle from 'ol/style/Circle'
+import Fill from 'ol/style/Fill'
+import Stroke from 'ol/style/Stroke'
+import Style from 'ol/style/Style'
 
-import { OlFeature } from './ol-feature.js'
-import { useOlMap } from './ol-map.js'
-import { OlVectorLayer } from './ol-vector-layer.js'
-import { OlVectorSource } from './ol-vector-source.js'
+import { OlFeature } from './ol-feature'
+import { useOlMap } from './ol-map'
+import { OlVectorLayer } from './ol-vector-layer'
+import { OlVectorSource } from './ol-vector-source'
 
 const userLocationStyleFn = () =>
   new Style({
-    image: new CircleStyle({
+    image: new Circle({
       radius: 10,
       fill: new Fill({
         color: '#0ecced',

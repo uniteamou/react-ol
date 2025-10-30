@@ -1,4 +1,4 @@
-import {
+import React, {
   forwardRef,
   type PropsWithChildren,
   type Ref,
@@ -6,22 +6,22 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import { never } from 'ol/events/condition.js'
-import Feature, { type FeatureLike } from 'ol/Feature.js'
-import { Geometry, LineString, MultiPoint } from 'ol/geom.js'
-import { Modify } from 'ol/interaction.js'
-import type { Options as ModifyOptions } from 'ol/interaction/Modify.js'
-import CircleStyle from 'ol/style/Circle.js'
-import Fill from 'ol/style/Fill.js'
-import Style from 'ol/style/Style.js'
+import { never } from 'ol/events/condition'
+import Feature, { type FeatureLike } from 'ol/Feature'
+import { Geometry, LineString, MultiPoint } from 'ol/geom'
+import { Modify } from 'ol/interaction'
+import type { Options as ModifyOptions } from 'ol/interaction/Modify'
+import Circle from 'ol/style/Circle'
+import Fill from 'ol/style/Fill'
+import Style from 'ol/style/Style'
 
-import { OlModify } from './ol-modify.js'
-import { useOlLayerSelect } from './ol-select.js'
+import { OlModify } from './ol-modify'
+import { useOlLayerSelect } from './ol-select'
 import {
   type ModifyListener,
   useOlModifyEventListener,
-} from './use-ol-modify-event-listener.js'
-import type { Coordinate } from 'ol/coordinate.js'
+} from './use-ol-modify-event-listener'
+import type { Coordinate } from 'ol/coordinate'
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>
@@ -123,7 +123,7 @@ function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
   })
 }
 
-const modifyLinesStyle = new CircleStyle({
+const modifyLinesStyle = new Circle({
   radius: 6,
   fill: new Fill({ color: 'blue' }),
 })

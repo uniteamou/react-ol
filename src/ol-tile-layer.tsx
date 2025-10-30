@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   forwardRef,
   type ReactNode,
@@ -8,11 +8,11 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import type { Options } from 'ol/layer/BaseTile.js'
-import TileLayer from 'ol/layer/Tile.js'
-import TileSource from 'ol/source/Tile.js'
+import type { Options } from 'ol/layer/BaseTile'
+import TileLayer from 'ol/layer/Tile'
+import TileSource from 'ol/source/Tile'
 
-import { useOlMap } from './ol-map.js'
+import { useOlMap } from './ol-map'
 
 export const OlTileLayer = forwardRef(OlTileLayerComponent)
 

@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   forwardRef,
   type PropsWithChildren,
@@ -8,11 +8,11 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import { Translate } from 'ol/interaction.js'
-import type { Options as TranslateOptions } from 'ol/interaction/Translate.js'
+import { Translate } from 'ol/interaction'
+import type { Options as TranslateOptions } from 'ol/interaction/Translate'
 
-import { useOlMap } from './ol-map.js'
-import { useOlVectorLayer } from './ol-vector-layer.js'
+import { useOlMap } from './ol-map'
+import { useOlVectorLayer } from './ol-vector-layer'
 
 export type OlTranslateProps = PropsWithChildren<{
   initialOptions?: TranslateOptions

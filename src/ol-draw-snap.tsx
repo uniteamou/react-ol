@@ -1,13 +1,13 @@
-import { useCallback, useState } from 'react'
+import React, { useCallback, useState } from 'react'
 import type { Feature } from 'ol'
-import type { Geometry } from 'ol/geom.js'
+import type { Geometry } from 'ol/geom'
 
-import { OlFeature } from './ol-feature.js'
-import { OlSnap } from './ol-snap.js'
-import { useOlDraw } from './ol-draw.js'
-import { OlVectorLayer } from './ol-vector-layer.js'
-import { OlVectorSource } from './ol-vector-source.js'
-import { useOlDrawEventListener } from './use-ol-draw-event-listener.js'
+import { OlFeature } from './ol-feature'
+import { OlSnap } from './ol-snap'
+import { useOlDraw } from './ol-draw'
+import { OlVectorLayer } from './ol-vector-layer'
+import { OlVectorSource } from './ol-vector-source'
+import { useOlDrawEventListener } from './use-ol-draw-event-listener'
 
 type DrawEventListener = Parameters<typeof useOlDrawEventListener>[2]
 

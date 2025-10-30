@@ -1,4 +1,4 @@
-import {
+import React, {
   createContext,
   forwardRef,
   type Ref,
@@ -7,11 +7,11 @@ import {
   useImperativeHandle,
   useState,
 } from 'react'
-import { Draw } from 'ol/interaction.js'
-import type { Options as DrawOptions } from 'ol/interaction/Draw.js'
+import { Draw } from 'ol/interaction'
+import type { Options as DrawOptions } from 'ol/interaction/Draw'
 
-import { useOlMap } from './ol-map.js'
-import { useOlVectorSource } from './ol-vector-source.js'
+import { useOlMap } from './ol-map'
+import { useOlVectorSource } from './ol-vector-source'
 
 type OlDrawProps = {
   initialOptions?: Partial<DrawOptions>
