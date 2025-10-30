@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.2](https://github.com/uniteamou/react-ol/compare/v0.0.1...v0.0.2) (2025-10-30)
+
+
+### Bug Fixes
+
+* fix export of files for usage ([#10](https://github.com/uniteamou/react-ol/issues/10)) ([1664dee](https://github.com/uniteamou/react-ol/commit/1664deebfb64ed3a35f5c988c54843b3c3486bf1))
+* fix tree shaking for bundler ([1664dee](https://github.com/uniteamou/react-ol/commit/1664deebfb64ed3a35f5c988c54843b3c3486bf1))
+
 ## 0.0.1 (2025-10-24)
 
 
