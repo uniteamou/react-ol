@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { Draw } from 'ol/interaction.js'
-import { DrawEvent } from 'ol/interaction/Draw.js'
+import { Draw } from 'ol/interaction'
+import { DrawEvent } from 'ol/interaction/Draw'
 
 type DrawEventParams = Parameters<Draw['on']>
 export type DrawEventType = DrawEventParams[0] | DrawEventParams[0][number]

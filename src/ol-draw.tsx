@@ -7,11 +7,11 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react'
-import { Draw } from 'ol/interaction.js'
-import type { Options as DrawOptions } from 'ol/interaction/Draw.js'
+import { Draw } from 'ol/interaction'
+import type { Options as DrawOptions } from 'ol/interaction/Draw'
 
-import { useOlMap } from './ol-map.jsx'
-import { useOlVectorSource } from './ol-vector-source.jsx'
+import { useOlMap } from './ol-map'
+import { useOlVectorSource } from './ol-vector-source'
 
 type OlDrawProps = {
   initialOptions?: Partial<DrawOptions>

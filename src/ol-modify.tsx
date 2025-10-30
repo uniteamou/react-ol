@@ -8,11 +8,11 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react'
-import { Modify } from 'ol/interaction.js'
-import type { Options as ModifyOptions } from 'ol/interaction/Modify.js'
+import { Modify } from 'ol/interaction'
+import type { Options as ModifyOptions } from 'ol/interaction/Modify'
 
-import { useOlMap } from './ol-map.jsx'
-import { useOlVectorSource } from './ol-vector-source.jsx'
+import { useOlMap } from './ol-map'
+import { useOlVectorSource } from './ol-vector-source'
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>

@@ -1,4 +1,4 @@
-import type { Coordinate } from 'ol/coordinate.js'
+import type { Coordinate } from 'ol/coordinate'
 import {
   Geometry,
   GeometryCollection,
@@ -6,7 +6,7 @@ import {
   MultiPoint,
   MultiPolygon,
   SimpleGeometry,
-} from 'ol/geom.js'
+} from 'ol/geom'
 
 export function getGeometriesFromGeometry(g: Geometry) {
   if (g instanceof GeometryCollection) {

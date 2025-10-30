@@ -5,20 +5,20 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react'
-import { getCenter, getHeight, getWidth } from 'ol/extent.js'
-import Feature, { type FeatureLike } from 'ol/Feature.js'
-import { Geometry, LineString, MultiPoint, Point, Polygon } from 'ol/geom.js'
-import { Modify } from 'ol/interaction.js'
-import type { Options as ModifyOptions } from 'ol/interaction/Modify.js'
-import Circle from 'ol/style/Circle.js'
-import Fill from 'ol/style/Fill.js'
-import Style from 'ol/style/Style.js'
+import { getCenter, getHeight, getWidth } from 'ol/extent'
+import Feature, { type FeatureLike } from 'ol/Feature'
+import { Geometry, LineString, MultiPoint, Point, Polygon } from 'ol/geom'
+import { Modify } from 'ol/interaction'
+import type { Options as ModifyOptions } from 'ol/interaction/Modify'
+import Circle from 'ol/style/Circle'
+import Fill from 'ol/style/Fill'
+import Style from 'ol/style/Style'
 
-import { OlModify } from './ol-modify.jsx'
+import { OlModify } from './ol-modify'
 import {
   type ModifyListener,
   useOlModifyEventListener,
-} from './use-ol-modify-event-listener.js'
+} from './use-ol-modify-event-listener'
 
 type OlModifyProps = { initialOptions?: Partial<ModifyOptions> }
 

@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { render, renderHook } from '@testing-library/react'
 import { Map } from 'ol'
-import OlEvent from 'ol/events/Event.js'
+import OlEvent from 'ol/events/Event'
 
-import { OlMap } from './ol-map.jsx'
+import { OlMap } from './ol-map'
 import {
   type MapEventType,
   useOlMapEventListener,
-} from './use-ol-map-event-listener.js'
+} from './use-ol-map-event-listener'
 
 describe.each(['moveend' as const] as MapEventType[])(
   'useOlMapEventListener',

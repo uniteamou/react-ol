@@ -8,10 +8,10 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react'
-import type { Options as TranslateOptions } from 'ol/interaction/Translate.js'
+import type { Options as TranslateOptions } from 'ol/interaction/Translate'
 
-import { useOlMap } from './ol-map.jsx'
-import TranslateMiddle from './translate-middle.js'
+import { useOlMap } from './ol-map'
+import TranslateMiddle from './translate-middle'
 
 export type OlTranslateMiddleProps = PropsWithChildren<{
   initialOptions?: TranslateOptions

@@ -7,11 +7,11 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react'
-import { Snap } from 'ol/interaction.js'
-import type { Options as SnapOptions } from 'ol/interaction/Snap.js'
+import { Snap } from 'ol/interaction'
+import type { Options as SnapOptions } from 'ol/interaction/Snap'
 
-import { useOlMap } from './ol-map.jsx'
-import { useOlVectorSource } from './ol-vector-source.jsx'
+import { useOlMap } from './ol-map'
+import { useOlVectorSource } from './ol-vector-source'
 
 type OlSnapProps = React.PropsWithChildren<{
   initialOptions?: Partial<SnapOptions>

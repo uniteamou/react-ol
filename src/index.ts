@@ -1,103 +1,103 @@
-export { OlMap, useOlMap } from './ol-map.jsx'
+export { OlMap, useOlMap } from './ol-map'
 export {
   useOlMapEventListener,
   type MapEventType,
-} from './use-ol-map-event-listener.js'
+} from './use-ol-map-event-listener'
 
-export { OlView } from './ol-view.jsx'
-export { OlOverlay, useOlOverlayComponent } from './ol-overlay-component.jsx'
+export { OlView } from './ol-view'
+export { OlOverlay, useOlOverlayComponent } from './ol-overlay-component'
 
 export {
   OlImageLayer,
   OlLayerGeoImage,
   useOlImageLayer,
-} from './ol-layer-geo-image.jsx'
-export { OlImageSource } from './ol-image-source.jsx'
-export { OlSourceCustomArcGISXYZ } from './ol-source-custom-arcgis-xyz.jsx'
-export { OlSourceOSM } from './ol-source-osm.jsx'
-export { OlSourceTileArcGISRest } from './ol-source-tile-arcgis-rest.jsx'
-export { OlSourceXYZ } from './ol-source-xyz.jsx'
-export { OlTileLayer, useOlTileLayer } from './ol-tile-layer.jsx'
+} from './ol-layer-geo-image'
+export { OlImageSource } from './ol-image-source'
+export { OlSourceCustomArcGISXYZ } from './ol-source-custom-arcgis-xyz'
+export { OlSourceOSM } from './ol-source-osm'
+export { OlSourceTileArcGISRest } from './ol-source-tile-arcgis-rest'
+export { OlSourceXYZ } from './ol-source-xyz'
+export { OlTileLayer, useOlTileLayer } from './ol-tile-layer'
 export {
   OlVectorLayer,
   OlVectorLayerComponent,
   useOlVectorLayer,
-} from './ol-vector-layer.jsx'
-export { OlVectorSource, useOlVectorSource } from './ol-vector-source.jsx'
+} from './ol-vector-layer'
+export { OlVectorSource, useOlVectorSource } from './ol-vector-source'
 
-export { OlFeature } from './ol-feature.jsx'
+export { OlFeature } from './ol-feature'
 export {
   OlFeatureTranslateAnchors,
   styleWithTranslateAnchorsGeometry,
-} from './ol-feature-translate-anchors.jsx'
+} from './ol-feature-translate-anchors'
 export {
   circleStyleFunction,
   highlightStyleFunction,
-} from './feature-styles.js'
+} from './feature-styles'
 
-export { OlModify, useOlModify } from './ol-modify.jsx'
+export { OlModify, useOlModify } from './ol-modify'
 export {
   useOlSelectEventListener,
   type SelectEventType,
   type SelectListener,
-} from './use-ol-select-event-listener.jsx'
+} from './use-ol-select-event-listener'
 export {
   OlFeatureModifyAnchors,
   styleWithModifyAnchorsGeometry,
-} from './ol-feature-modify-anchors.jsx'
+} from './ol-feature-modify-anchors'
 export {
   OlFeatureModifyScale,
   styleWithModifyGeometry as styleWithModifyGeometryScale,
-} from './ol-feature-modify-scale.jsx'
+} from './ol-feature-modify-scale'
 export {
   OlFeatureModify,
   styleWithModifyGeometry,
-} from './ol-feature-modify.jsx'
-export { OlModifySelected } from './ol-modify-selected.jsx'
+} from './ol-feature-modify'
+export { OlModifySelected } from './ol-modify-selected'
 export {
   useOlModifyEventListener,
   type ModifyEventType,
   type ModifyListener,
-} from './use-ol-modify-event-listener.js'
+} from './use-ol-modify-event-listener'
 
-export { OlSelect, OlLayerSelect, useOlLayerSelect } from './ol-select.jsx'
+export { OlSelect, OlLayerSelect, useOlLayerSelect } from './ol-select'
 
 export {
   useOlDrawEventListener,
   type DrawEventType,
   type DrawListener,
-} from './use-ol-draw-event-listener.js'
-export { OlDrawMesureTool } from './ol-draw-mesure-tool.jsx'
-export { OlDrawSnap } from './ol-draw-snap.jsx'
-export { OlDraw } from './ol-draw.jsx'
+} from './use-ol-draw-event-listener'
+export { OlDrawMesureTool } from './ol-draw-mesure-tool'
+export { OlDrawSnap } from './ol-draw-snap'
+export { OlDraw } from './ol-draw'
 
-export { OlSnap, useOlSnapComponent } from './ol-snap.jsx'
+export { OlSnap, useOlSnapComponent } from './ol-snap'
 
 export {
   useOlTranslateEventListener,
   type TranslateEventType,
   type TranslateListener,
-} from './use-ol-translate-event-listener.jsx'
+} from './use-ol-translate-event-listener'
 export {
   OlTranslateMiddle,
   useOlTranslateMiddle,
   type OlTranslateMiddleProps,
-} from './ol-translate-middle.jsx'
-export { default as TranslateMiddleClass } from './translate-middle.js'
+} from './ol-translate-middle'
+export { default as TranslateMiddleClass } from './translate-middle'
 export {
   OlTranslateSelected,
   OlTranslateSelectedComponent,
-} from './ol-translate-selected.jsx'
+} from './ol-translate-selected'
 export {
   OlTranslate,
   OlLayerTranslate,
   useOlTranslate,
   type OlTranslateProps,
-} from './ol-translate.jsx'
+} from './ol-translate'
 
-export { OlUserLocationLayer } from './ol-user-location-layer.jsx'
+export { OlUserLocationLayer } from './ol-user-location-layer'
 
 export {
   getCoordinatesFromGeometry,
   getGeometriesFromGeometry,
-} from './geometry.js'
+} from './geometry'

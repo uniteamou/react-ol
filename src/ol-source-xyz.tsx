@@ -5,9 +5,9 @@ import React, {
   useImperativeHandle,
   useState,
 } from 'react'
-import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ.js'
+import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ'
 
-import { useOlTileLayer } from './ol-tile-layer.jsx'
+import { useOlTileLayer } from './ol-tile-layer'
 
 export const OlSourceXYZ = forwardRef(OlSourceXYZComponent)
 

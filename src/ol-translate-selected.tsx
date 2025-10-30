@@ -5,10 +5,10 @@ import React, {
   useMemo,
   useState,
 } from 'react'
-import { Translate } from 'ol/interaction.js'
+import { Translate } from 'ol/interaction'
 
-import { useOlLayerSelect } from './ol-select.jsx'
-import { OlTranslate, type OlTranslateProps } from './ol-translate.jsx'
+import { useOlLayerSelect } from './ol-select'
+import { OlTranslate, type OlTranslateProps } from './ol-translate'
 
 type OlTranslateSelectedProps = OlTranslateProps
 

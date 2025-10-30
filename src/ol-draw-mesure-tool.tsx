@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import type { Overlay } from 'ol'
-import { LineString, type Geometry } from 'ol/geom.js'
-import { getLength } from 'ol/sphere.js'
+import { LineString, type Geometry } from 'ol/geom'
+import { getLength } from 'ol/sphere'
 
-import { useOlDraw } from './ol-draw.jsx'
-import { OlOverlay } from './ol-overlay-component.jsx'
-import { useOlDrawEventListener } from './use-ol-draw-event-listener.js'
-import type BaseEvent from 'ol/events/Event.js'
+import { useOlDraw } from './ol-draw'
+import { OlOverlay } from './ol-overlay-component'
+import { useOlDrawEventListener } from './use-ol-draw-event-listener'
+import type BaseEvent from 'ol/events/Event'
 
 type GeometryEvent = (event: Event | BaseEvent) => unknown
 type DrawEventListener = Parameters<typeof useOlDrawEventListener>[2]

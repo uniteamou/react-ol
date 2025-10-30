@@ -4,7 +4,7 @@
     /* Base Options: */
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "target": "es2022",
+    "target": "es2020",
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",
@@ -19,7 +19,8 @@
     "noUnusedLocals": true,
 
     /* If transpiling with TypeScript: */
-    "module": "NodeNext",
+    "module": "esnext",
+    "moduleResolution": "node",
     "sourceMap": true,
 
     /* AND if you're building for a library: */
@@ -29,10 +30,10 @@
 
     /* If your code runs in the DOM: */
     "lib": ["es2022", "dom", "dom.iterable"],
-    "incremental": true,
 
     "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "lib", "**/*.test.ts", "**/*.test.tsx"]
