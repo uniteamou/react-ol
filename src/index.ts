@@ -30,10 +30,7 @@ export {
   OlFeatureTranslateAnchors,
   styleWithTranslateAnchorsGeometry,
 } from './ol-feature-translate-anchors'
-export {
-  circleStyleFunction,
-  highlightStyleFunction,
-} from './feature-styles'
+export { circleStyleFunction, highlightStyleFunction } from './feature-styles'
 
 export { OlModify, useOlModify } from './ol-modify'
 export {
@@ -49,10 +46,7 @@ export {
   OlFeatureModifyScale,
   styleWithModifyGeometry as styleWithModifyGeometryScale,
 } from './ol-feature-modify-scale'
-export {
-  OlFeatureModify,
-  styleWithModifyGeometry,
-} from './ol-feature-modify'
+export { OlFeatureModify, styleWithModifyGeometry } from './ol-feature-modify'
 export { OlModifySelected } from './ol-modify-selected'
 export {
   useOlModifyEventListener,
