@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup';
 
 export default defineConfig(options => ({
-  entry: ['./src/index.ts'],
+  entry: ['./src/**/*.{ts,tsx}', '!./src/**/*.test.{ts,tsx}'],
   outDir: './lib',
   format: ['esm'],
   minify: !options.watch,
@@ -14,5 +14,6 @@ export default defineConfig(options => ({
     },
   },
   external: ['react', 'react-dom', 'ol', 'ol-ext'],
+  splitting: true,
   treeshake: true,
 }));
