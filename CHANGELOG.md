@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.3](https://github.com/uniteamou/react-ol/compare/v0.0.2...v0.0.3) (2025-10-30)
+
+
+### Bug Fixes
+
+* fix message for ol-select ([a68b454](https://github.com/uniteamou/react-ol/commit/a68b454d9009d7a916c1e4dad29ded1f5836ec62))
+
 ## [0.0.2](https://github.com/uniteamou/react-ol/compare/v0.0.1...v0.0.2) (2025-10-30)
 
 
