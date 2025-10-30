@@ -66,7 +66,7 @@ export function useOlLayerSelect() {
   const context = useContext(OlLayerSelectContext)
   if (context === null) {
     throw new Error(
-      'No context provided: useOlMap() can only be used in a descendant of <OlMap>'
+      'No context provided: useOlLayerSelect() can only be used in a descendant of <OlLayerSelect>'
     )
   }
   return context
