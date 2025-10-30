@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.0.4](https://github.com/uniteamou/react-ol/compare/v0.0.3...v0.0.4) (2025-10-30)
+
+
+### Bug Fixes
+
+* **App:** clean up style imports ([#15](https://github.com/uniteamou/react-ol/issues/15)) ([fba1864](https://github.com/uniteamou/react-ol/commit/fba1864bd2c247b91e733a280c41245e841e4b19))
+
 ## [0.0.3](https://github.com/uniteamou/react-ol/compare/v0.0.2...v0.0.3) (2025-10-30)
 
 
