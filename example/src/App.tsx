@@ -1,12 +1,5 @@
 import { OlMap, OlView } from 'react-ol';
 import 'ol/ol.css';
-import Style from 'ol/style/Style';
-// import { Style } from 'ol/style';
-import Stroke from 'ol/style/Stroke';
-
-const style = new Style({
-  stroke: new Stroke({ color: 'rgba(0,0,0,0.01)' })
-})
 
 function App() {
   return (
