@@ -8,7 +8,19 @@
   ],
   "rules": {
     "@typescript-eslint/no-empty-object-type": 0,
-    "no-console": ["error", { "allow": ["warn", "error"] }]
+    "no-console": ["error", { "allow": ["warn", "error"] }],
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "args": "all",
+        "argsIgnorePattern": "^_|React",
+        "caughtErrors": "all",
+        "caughtErrorsIgnorePattern": "^_|React",
+        "destructuredArrayIgnorePattern": "^_|React",
+        "varsIgnorePattern": "^_|React",
+        "ignoreRestSiblings": true
+      }
+    ]
   },
   "env": {
     "jest": true
