@@ -17,6 +17,24 @@ export type OlTranslateMiddleProps = PropsWithChildren<{
   initialOptions?: TranslateOptions
 }>
 
+/**
+ * Custom Translate interaction component that allows dragging line segment midpoints.
+ * When a user clicks on the middle of a line segment, both endpoints move together.
+ * Must be used within an OlMap.
+ *
+ * @param props.initialOptions - Configuration options for the translate interaction
+ * @param props.children - Child components
+ * @param ref - Forwarded ref to expose the TranslateMiddle interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlTranslateMiddle ref={translateRef} initialOptions={{ hitTolerance: 10 }}>
+ *     {children}
+ *   </OlTranslateMiddle>
+ * </OlMap>
+ * ```
+ */
 export const OlTranslateMiddle = forwardRef<
   TranslateMiddle | null,
   OlTranslateMiddleProps
@@ -49,6 +67,22 @@ function OlTranslateMiddleComponent(
   )
 }
 
+/**
+ * Hook to access the TranslateMiddle interaction instance from the nearest parent OlTranslateMiddle component.
+ * Must be used within a descendant of OlTranslateMiddle.
+ *
+ * @returns The TranslateMiddle interaction instance
+ * @throws {Error} If called outside of an OlTranslateMiddle component
+ *
+ * @example
+ * ```tsx
+ * function TranslateMiddleControl() {
+ *   const translateMiddle = useOlTranslateMiddle()
+ *   // Use translateMiddle instance
+ *   return null
+ * }
+ * ```
+ */
 export function useOlTranslateMiddle() {
   const context = useContext(OlTranslateMiddleComponentContext)
   if (context === null) {

@@ -57,6 +57,25 @@ export function OlLayerGeoImage(
   )
 }
 
+/**
+ * Memoized OpenLayers GeoImage layer component for displaying georeferenced images.
+ * Uses shallow comparison for props optimization.
+ *
+ * @param props - All OpenLayers BaseImage layer options plus custom props
+ * @param props.children - Child components to render within the layer context (typically image sources)
+ * @param props.isVisible - Controls layer visibility
+ * @param props.properties - Custom properties to attach to the layer
+ * @param ref - Forwarded ref to expose the LayerGeoImage instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlImageLayer isVisible={true} properties={{ id: 'layer1' }}>
+ *     <OlImageSource url="image.jpg" />
+ *   </OlImageLayer>
+ * </OlMap>
+ * ```
+ */
 export const OlImageLayer = memo(
   forwardRef(OlLayerGeoImage),
   (prevProps, nextProps) => {
@@ -71,6 +90,23 @@ export const OlImageLayer = memo(
 )
 
 const OlImageLayerContext = createContext<LayerGeoImage | null>(null)
+
+/**
+ * Hook to access the OpenLayers GeoImage layer instance from the nearest parent OlImageLayer component.
+ * Must be used within a descendant of OlImageLayer.
+ *
+ * @returns The OpenLayers LayerGeoImage instance
+ * @throws {Error} If called outside of an OlImageLayer component
+ *
+ * @example
+ * ```tsx
+ * function ImageControl() {
+ *   const layer = useOlImageLayer()
+ *   // Use layer instance
+ *   return null
+ * }
+ * ```
+ */
 export function useOlImageLayer() {
   const context = useContext(OlImageLayerContext)
   if (context === null) {

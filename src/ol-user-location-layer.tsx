@@ -36,6 +36,25 @@ type OlUserLocationLayerProps = Options & {
   visible?: boolean
 }
 
+/**
+ * Layer component that displays the user's current location on the map using the Geolocation API.
+ * Automatically tracks user position and updates a blue circle marker.
+ * Must be used within an OlMap.
+ *
+ * @param props - All OpenLayers Geolocation options plus custom props
+ * @param props.visible - Controls layer visibility (default: true)
+ * @param props.trackingOptions - HTML5 Geolocation API options
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlUserLocationLayer
+ *     visible={true}
+ *     trackingOptions={{ enableHighAccuracy: true }}
+ *   />
+ * </OlMap>
+ * ```
+ */
 export function OlUserLocationLayer({
   visible = true,
   ...geolocationProps

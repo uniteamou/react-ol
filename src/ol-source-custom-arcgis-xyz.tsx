@@ -61,6 +61,29 @@ class ArcGISImageServerXYZ extends XYZ {
   }
 }
 
+/**
+ * OpenLayers tile source component for ArcGIS Image Server using XYZ tile scheme with custom BBOX export.
+ * Generates tile URLs with BBOX parameters for ArcGIS export endpoints.
+ * Must be used as a child of OlTileLayer.
+ *
+ * @param props.initialOptions - Configuration options for the ArcGIS XYZ source
+ * @param props.initialOptions.url - Base URL of the ArcGIS Image Server
+ * @param props.initialOptions.maxZoom - Maximum zoom level
+ * @param props.initialOptions.attributions - Attribution text for the source
+ * @param ref - Forwarded ref to expose the ArcGISImageServerXYZ instance
+ *
+ * @example
+ * ```tsx
+ * <OlTileLayer>
+ *   <OlSourceCustomArcGISXYZ
+ *     initialOptions={{
+ *       url: 'https://server.arcgisonline.com/arcgis/rest/services/Layer/ImageServer',
+ *       maxZoom: 18
+ *     }}
+ *   />
+ * </OlTileLayer>
+ * ```
+ */
 export const OlSourceCustomArcGISXYZ = forwardRef(
   OlSourceCustomArcGISXYZComponent
 )

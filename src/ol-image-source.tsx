@@ -18,6 +18,32 @@ type OlImageSourceProps = Omit<ImageSourceOptions, 'imageMask'> & {
 
 type ImageSourceType = InstanceType<typeof ImageSource>
 
+/**
+ * OpenLayers GeoImage source component for providing georeferenced image data to an image layer.
+ * Must be used as a child of OlImageLayer.
+ *
+ * @param props - OpenLayers GeoImage source options
+ * @param props.url - URL of the image to display
+ * @param props.imageCenter - Center coordinates [x, y] of the image (reactive)
+ * @param props.imageScale - Scale factor for the image (reactive)
+ * @param props.imageRotate - Rotation angle in radians (reactive)
+ * @param props.imageOpacity - Opacity value between 0 and 1
+ * @param props.imageMask - Optional mask for the image
+ * @param ref - Forwarded ref to expose the GeoImage source instance
+ *
+ * @example
+ * ```tsx
+ * <OlImageLayer isVisible={true}>
+ *   <OlImageSource
+ *     url="image.jpg"
+ *     imageCenter={[0, 0]}
+ *     imageScale={[1, 1]}
+ *     imageRotate={0}
+ *     imageOpacity={0.8}
+ *   />
+ * </OlImageLayer>
+ * ```
+ */
 export const OlImageSource = forwardRef(function OlImageSource(
   {
     url,

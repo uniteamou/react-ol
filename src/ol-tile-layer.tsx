@@ -14,6 +14,25 @@ import TileSource from 'ol/source/Tile'
 
 import { useOlMap } from './ol-map'
 
+/**
+ * OpenLayers tile layer component for displaying tiled map data.
+ * Supports various tile sources like OSM, XYZ, ArcGIS, etc.
+ * Must be used as a child of OlMap.
+ *
+ * @param props.children - Child components to render within the layer context (typically tile sources)
+ * @param props.initialOptions - Initial configuration options for the tile layer
+ * @param props.isVisible - Controls layer visibility (default: true, reactive)
+ * @param ref - Forwarded ref to expose the TileLayer instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlTileLayer ref={layerRef} isVisible={true}>
+ *     <OlSourceOSM />
+ *   </OlTileLayer>
+ * </OlMap>
+ * ```
+ */
 export const OlTileLayer = forwardRef(OlTileLayerComponent)
 
 type OlTileLayerProps = {
@@ -51,6 +70,23 @@ export function OlTileLayerComponent(
 }
 
 const OlTileLayerContext = createContext<TileLayer<TileSource> | null>(null)
+
+/**
+ * Hook to access the OpenLayers TileLayer instance from the nearest parent OlTileLayer component.
+ * Must be used within a descendant of OlTileLayer.
+ *
+ * @returns The OpenLayers TileLayer instance
+ * @throws {Error} If called outside of an OlTileLayer component
+ *
+ * @example
+ * ```tsx
+ * function TileControl() {
+ *   const layer = useOlTileLayer()
+ *   // Use layer instance
+ *   return null
+ * }
+ * ```
+ */
 export function useOlTileLayer() {
   const context = useContext(OlTileLayerContext)
   if (context === null) {

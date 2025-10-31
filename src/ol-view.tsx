@@ -9,6 +9,23 @@ type OlViewProps = ViewOptions & {
   zoom?: number
   rotation?: number
 }
+
+/**
+ * OpenLayers View component that manages the map's viewport (center, zoom, rotation).
+ * Must be used as a child of OlMap.
+ *
+ * @param props - All standard OpenLayers ViewOptions plus reactive properties
+ * @param props.center - Map center coordinates [x, y] (reactive)
+ * @param props.zoom - Map zoom level (reactive)
+ * @param props.rotation - Map rotation in radians (reactive)
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlView center={[0, 0]} zoom={5} rotation={0} />
+ * </OlMap>
+ * ```
+ */
 export function OlView({
   center,
   zoom,

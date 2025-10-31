@@ -11,6 +11,18 @@ import { useOlDrawEventListener } from './use-ol-draw-event-listener'
 
 type DrawEventListener = Parameters<typeof useOlDrawEventListener>[2]
 
+/**
+ * Component that enables snapping during drawing by temporarily displaying the feature being drawn.
+ * Creates a temporary vector layer with snap interaction for the feature under construction.
+ * Must be used as a child of OlDraw.
+ *
+ * @example
+ * ```tsx
+ * <OlDraw initialOptions={{ type: 'LineString' }}>
+ *   <OlDrawSnap />
+ * </OlDraw>
+ * ```
+ */
 export function OlDrawSnap() {
   const draw = useOlDraw()
 

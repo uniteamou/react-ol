@@ -18,6 +18,24 @@ export type OlTranslateProps = PropsWithChildren<{
   initialOptions?: TranslateOptions
 }>
 
+/**
+ * OpenLayers Translate interaction component for moving features by dragging.
+ * Allows users to click and drag features to reposition them.
+ * Must be used within an OlMap.
+ *
+ * @param props.initialOptions - Configuration options for the translate interaction
+ * @param props.children - Child components to render within the translate context
+ * @param ref - Forwarded ref to expose the Translate interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlTranslate ref={translateRef} initialOptions={{ hitTolerance: 5 }}>
+ *     {children}
+ *   </OlTranslate>
+ * </OlMap>
+ * ```
+ */
 export const OlTranslate = forwardRef<Translate | null, OlTranslateProps>(
   OlTranslateComponent
 )
@@ -47,6 +65,23 @@ function OlTranslateComponent(
   )
 }
 
+/**
+ * Translate interaction component scoped to a specific vector layer.
+ * Automatically configures the translate interaction to only move features from the parent layer.
+ * Must be used within an OlVectorLayer.
+ *
+ * @param props.initialOptions - Configuration options for the translate interaction
+ * @param ref - Forwarded ref to expose the Translate interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlVectorLayer visible={true}>
+ *   <OlLayerTranslate ref={translateRef}>
+ *     {children}
+ *   </OlLayerTranslate>
+ * </OlVectorLayer>
+ * ```
+ */
 export const OlLayerTranslate = forwardRef(LayerTranslateComponent)
 
 function LayerTranslateComponent(
@@ -59,6 +94,22 @@ function LayerTranslateComponent(
   return <OlTranslate ref={forwardedRef} initialOptions={initialOptions} />
 }
 
+/**
+ * Hook to access the OpenLayers Translate interaction instance from the nearest parent OlTranslate component.
+ * Must be used within a descendant of OlTranslate/OlLayerTranslate.
+ *
+ * @returns The OpenLayers Translate interaction instance
+ * @throws {Error} If called outside of an OlTranslate/OlLayerTranslate component
+ *
+ * @example
+ * ```tsx
+ * function TranslateControl() {
+ *   const translate = useOlTranslate()
+ *   // Use translate instance
+ *   return null
+ * }
+ * ```
+ */
 export function useOlTranslate() {
   const context = useContext(OlTranslateComponentContext)
   if (context === null) {

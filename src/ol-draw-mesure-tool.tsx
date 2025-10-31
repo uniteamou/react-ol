@@ -11,6 +11,18 @@ import type BaseEvent from 'ol/events/Event'
 type GeometryEvent = (event: Event | BaseEvent) => unknown
 type DrawEventListener = Parameters<typeof useOlDrawEventListener>[2]
 
+/**
+ * Component that displays real-time measurement tooltips during line drawing.
+ * Shows the length of the line being drawn, formatted in meters or kilometers.
+ * Must be used as a child of OlDraw configured with type="LineString".
+ *
+ * @example
+ * ```tsx
+ * <OlDraw initialOptions={{ type: 'LineString' }}>
+ *   <OlDrawMesureTool />
+ * </OlDraw>
+ * ```
+ */
 export function OlDrawMesureTool() {
   const draw = useOlDraw()
   const overlayRef = useRef<Overlay | null>(null)

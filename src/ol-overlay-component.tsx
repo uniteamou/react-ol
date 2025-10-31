@@ -20,6 +20,26 @@ type OlOverlayProps = OverlayOptions &
     wrapperDivElementProps?: React.HTMLAttributes<HTMLDivElement>
   }>
 
+/**
+ * OpenLayers Overlay component for displaying HTML elements anchored to map coordinates.
+ * Useful for popups, tooltips, and custom markers.
+ *
+ * @param props - All OpenLayers OverlayOptions plus React-specific props
+ * @param props.children - React elements to render inside the overlay
+ * @param props.className - CSS class name for the overlay wrapper div
+ * @param props.wrapperDivElementProps - Additional HTML attributes for the wrapper div
+ * @param props.position - Map coordinates [x, y] where the overlay should be positioned (reactive)
+ * @param ref - Forwarded ref to expose the Overlay instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlOverlay position={[0, 0]} className="popup">
+ *     <div>Popup content</div>
+ *   </OlOverlay>
+ * </OlMap>
+ * ```
+ */
 export const OlOverlay = forwardRef<Overlay | null, OlOverlayProps>(
   OlOverlayComponent
 )
@@ -73,6 +93,22 @@ function OlOverlayComponent(
   )
 }
 
+/**
+ * Hook to access the OpenLayers Overlay instance from the nearest parent OlOverlay component.
+ * Must be used within a descendant of OlOverlay.
+ *
+ * @returns The OpenLayers Overlay instance
+ * @throws {Error} If called outside of an OlOverlay component
+ *
+ * @example
+ * ```tsx
+ * function OverlayContent() {
+ *   const overlay = useOlOverlayComponent()
+ *   // Use overlay instance
+ *   return <div>Content</div>
+ * }
+ * ```
+ */
 export function useOlOverlayComponent() {
   const context = useContext(OlOverlayComponentContext)
   if (context === null) {

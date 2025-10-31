@@ -27,6 +27,26 @@ type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>
 }>
 
+/**
+ * Modify interaction component specialized for anchor-based line editing.
+ * Adds draggable anchor points at line endpoints for controlled geometry modification.
+ * Prevents vertex insertion/deletion during modification.
+ *
+ * @param props.initialOptions - Configuration options for the modify interaction
+ * @param props.children - Child components
+ * @param ref - Forwarded ref to expose the Modify interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlVectorLayer visible={true}>
+ *     <OlFeatureModifyAnchors ref={modifyRef}>
+ *       {children}
+ *     </OlFeatureModifyAnchors>
+ *   </OlVectorLayer>
+ * </OlMap>
+ * ```
+ */
 export const OlFeatureModifyAnchors = forwardRef<Modify | null, OlModifyProps>(
   OlFeatureModifyAnchorsComponent
 )
@@ -130,6 +150,20 @@ const modifyLinesStyle = new Circle({
 
 const anchors = new MultiPoint([0, 0])
 
+/**
+ * Style function that generates anchor point styles at the start and end of line geometries.
+ * Returns an array of styles with anchor point geometries for modify interaction.
+ *
+ * @param feature - The OpenLayers feature to style
+ * @returns Array of Style objects with anchor point geometries at line endpoints
+ *
+ * @example
+ * ```tsx
+ * const layer = new VectorLayer({
+ *   style: styleWithModifyAnchorsGeometry
+ * })
+ * ```
+ */
 export function styleWithModifyAnchorsGeometry(feature: FeatureLike) {
   const modifyGeometry = feature.get('modifyGeometry')
   const geometry = modifyGeometry
