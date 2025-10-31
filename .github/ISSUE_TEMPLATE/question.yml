@@ -1,0 +1,47 @@
+name: "❓ Question"
+description: Ask a question or request clarification.
+title: "[Question]: "
+labels: ["question", "needs triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? We’re happy to help! Please provide context so maintainers can assist quickly.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+      description: Write your question or describe what you need help with.
+      placeholder: e.g. How do I use this with TypeScript? or What’s the best way to integrate with XYZ?
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Library Version
+      description: (Optional) Which version are you using?
+      placeholder: e.g. 1.2.3 or main
+    validations:
+      required: false
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Include any relevant code snippets, errors, or environment info.
+      render: shell
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched the documentation and existing issues.
+          required: true
+        - label: This is not a bug or feature request.
+          required: true
+
