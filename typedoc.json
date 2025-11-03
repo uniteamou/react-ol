@@ -3,7 +3,6 @@
   "entryPoints": ["src/index.ts"],
   "entryPointStrategy": "expand",
   "out": "docs/api",
-  "plugin": ["typedoc-plugin-markdown"],
   "readme": "none",
   "excludePrivate": true,
   "excludeProtected": false,
