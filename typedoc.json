@@ -12,7 +12,7 @@
   "includeVersion": true,
   "sort": ["source-order"],
   "gitRevision": "main",
-  "githubPages": false,
+  "githubPages": true,
   "disableSources": false,
   "navigationLinks": {
     "GitHub": "https://github.com/uniteamou/react-ol"

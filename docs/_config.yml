@@ -1,15 +1,11 @@
+theme: jekyll-theme-minimal
+title: React OL
 markdown: kramdown
 include:
-  - "_*"
+  - "*"
   - "api"
 plugins:
   - jekyll-relative-links
 relative_links:
   enabled: true
   collections: true
-
-defaults:
-  - scope:
-      path: "api"
-    values:
-      render_with_liquid: false
