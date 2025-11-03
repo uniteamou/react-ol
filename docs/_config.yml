@@ -8,3 +8,9 @@ plugins:
 relative_links:
   enabled: true
   collections: true
+
+defaults:
+  - scope:
+      path: "api"
+    values:
+      render_with_liquid: false
