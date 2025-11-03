@@ -2,7 +2,6 @@ theme: jekyll-theme-minimal
 title: React OL
 markdown: kramdown
 include:
-  - "*"
   - "api"
 plugins:
   - jekyll-relative-links
