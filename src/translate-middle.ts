@@ -29,6 +29,20 @@ const TranslateEventType = {
   TRANSLATEEND: 'translateend',
 }
 
+/**
+ * Custom OpenLayers Translate interaction that enables dragging line segment midpoints.
+ * Extends the standard Translate interaction to detect clicks on segment midpoints
+ * and move both endpoints of the segment together.
+ *
+ * @example
+ * ```tsx
+ * const translateMiddle = new TranslateMiddle({
+ *   features: selectedFeatures,
+ *   hitTolerance: 10
+ * })
+ * map.addInteraction(translateMiddle)
+ * ```
+ */
 export class TranslateMiddle extends Translate {
   private hitTolerance: number
   private features: Collection<Feature<Geometry>> | null = null

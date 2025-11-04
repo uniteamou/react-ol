@@ -18,6 +18,24 @@ type OlFeatureSelectProps = PropsWithChildren<{
   initialOptions?: SelectOptions
 }>
 
+/**
+ * OpenLayers Select interaction component for selecting features on the map.
+ * Allows users to click features to select them.
+ * Must be used within an OlMap.
+ *
+ * @param props.initialOptions - Configuration options for the select interaction
+ * @param props.children - Child components to render within the select context
+ * @param ref - Forwarded ref to expose the Select interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlSelect ref={selectRef} initialOptions={{ multi: true }}>
+ *     {children}
+ *   </OlSelect>
+ * </OlMap>
+ * ```
+ */
 export const OlSelect = forwardRef<Select | null, OlFeatureSelectProps>(
   OlSelectComponent
 )
@@ -46,6 +64,24 @@ function OlSelectComponent(
   )
 }
 
+/**
+ * Select interaction component scoped to a specific vector layer.
+ * Automatically configures the select interaction to only select features from the parent layer.
+ * Must be used within an OlVectorLayer.
+ *
+ * @param props.initialOptions - Configuration options for the select interaction
+ * @param props.children - Child components
+ * @param ref - Forwarded ref to expose the Select interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlVectorLayer visible={true}>
+ *   <OlLayerSelect ref={selectRef}>
+ *     {children}
+ *   </OlLayerSelect>
+ * </OlVectorLayer>
+ * ```
+ */
 export const OlLayerSelect = forwardRef(LayerSelectComponent)
 
 function LayerSelectComponent(
@@ -62,6 +98,22 @@ function LayerSelectComponent(
   )
 }
 
+/**
+ * Hook to access the OpenLayers Select interaction instance from the nearest parent OlSelect or OlLayerSelect component.
+ * Must be used within a descendant of OlSelect/OlLayerSelect.
+ *
+ * @returns The OpenLayers Select interaction instance
+ * @throws {Error} If called outside of an OlSelect/OlLayerSelect component
+ *
+ * @example
+ * ```tsx
+ * function SelectControl() {
+ *   const select = useOlLayerSelect()
+ *   // Use select instance
+ *   return null
+ * }
+ * ```
+ */
 export function useOlLayerSelect() {
   const context = useContext(OlLayerSelectContext)
   if (context === null) {

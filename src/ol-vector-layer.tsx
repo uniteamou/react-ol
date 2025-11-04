@@ -87,6 +87,33 @@ export function OlVectorLayerComponent(
   )
 }
 
+/**
+ * Memoized OpenLayers vector layer component for displaying vector features (points, lines, polygons).
+ * Uses shallow comparison for props optimization.
+ *
+ * @param props.children - Child components to render within the layer context (typically vector sources)
+ * @param props.visible - Controls layer visibility (reactive)
+ * @param props.properties - Custom properties to attach to the layer (reactive)
+ * @param props.style - Style or style function for features (reactive)
+ * @param props.minZoom - Minimum zoom level for layer visibility (reactive)
+ * @param props.maxZoom - Maximum zoom level for layer visibility (reactive)
+ * @param props.zIndex - Layer z-index for rendering order (reactive)
+ * @param ref - Forwarded ref to expose the VectorLayer instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlVectorLayer
+ *     ref={layerRef}
+ *     visible={true}
+ *     style={myStyleFunction}
+ *     zIndex={10}
+ *   >
+ *     <OlVectorSource />
+ *   </OlVectorLayer>
+ * </OlMap>
+ * ```
+ */
 export const OlVectorLayer = memo(
   forwardRef(OlVectorLayerComponent),
   (prevProps, nextProps) => {
@@ -103,6 +130,23 @@ export const OlVectorLayer = memo(
 const OlVectorLayerContext = createContext<VectorLayer<FeatureLike> | null>(
   null
 )
+
+/**
+ * Hook to access the OpenLayers VectorLayer instance from the nearest parent OlVectorLayer component.
+ * Must be used within a descendant of OlVectorLayer.
+ *
+ * @returns The OpenLayers VectorLayer instance
+ * @throws {Error} If called outside of an OlVectorLayer component
+ *
+ * @example
+ * ```tsx
+ * function VectorControl() {
+ *   const layer = useOlVectorLayer()
+ *   // Use layer instance
+ *   return null
+ * }
+ * ```
+ */
 export function useOlVectorLayer() {
   const context = useContext(OlVectorLayerContext)
   if (context === null) {

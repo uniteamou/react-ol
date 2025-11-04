@@ -4,6 +4,25 @@ import Fill from 'ol/style/Fill'
 import Stroke from 'ol/style/Stroke'
 import Style, { type StyleFunction } from 'ol/style/Style'
 
+/**
+ * Style function that creates circle styles based on feature properties.
+ * Reads size, fillColor, strokeColor, and strokeWidth from feature properties.
+ *
+ * @param feature - The OpenLayers feature to style
+ * @returns Style Style object with configured circle appearance
+ *
+ * @example
+ * ```tsx
+ * const feature = new Feature({
+ *   geometry: new Point([0, 0]),
+ *   size: 15,
+ *   fillColor: '#00ff00',
+ *   strokeColor: '#000000',
+ *   strokeWidth: 2
+ * })
+ * feature.setStyle(circleStyleFunction)
+ * ```
+ */
 export function circleStyleFunction(feature: FeatureLike) {
   const size = feature.get('size') || 10
   const fillColor = feature.get('fillColor') || '#ff0000'
@@ -30,6 +49,26 @@ export function circleStyleFunction(feature: FeatureLike) {
 
 const highlightStroke = new Stroke({ color: 'rgba(0, 150, 255, 1)', width: 5 })
 
+/**
+ * Higher-order style function that wraps another style function to add highlight capability.
+ * Applies a blue highlight stroke when the feature has `shouldHighlight` property set to true.
+ *
+ * @param {StyleFunction} styleFn - The base style function to wrap
+ * @returns {StyleFunction} A new style function that conditionally applies highlighting
+ *
+ * @example
+ * ```tsx
+ * const baseStyle = (feature) => new Style({ ... })
+ * const highlightedStyle = highlightStyleFunction(baseStyle)
+ *
+ * const layer = new VectorLayer({
+ *   style: highlightedStyle
+ * })
+ *
+ * // Trigger highlight
+ * feature.set('shouldHighlight', true)
+ * ```
+ */
 export function highlightStyleFunction(styleFn: StyleFunction): StyleFunction {
   return (feature, resolution) => {
     const baseStyle = styleFn(feature, resolution)

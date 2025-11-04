@@ -18,6 +18,28 @@ type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>
 }>
 
+/**
+ * OpenLayers Modify interaction component for editing feature geometries.
+ * Allows users to click and drag feature vertices to modify their shape.
+ * Must be used within an OlMap and requires a vector source context.
+ *
+ * @param props.initialOptions - Configuration options for the modify interaction
+ * @param props.children - Child components to render within the modify context
+ * @param ref - Forwarded ref to expose the Modify interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlVectorLayer visible={true}>
+ *     <OlVectorSource>
+ *       <OlModify ref={modifyRef} initialOptions={{ pixelTolerance: 10 }}>
+ *         {children}
+ *       </OlModify>
+ *     </OlVectorSource>
+ *   </OlVectorLayer>
+ * </OlMap>
+ * ```
+ */
 export const OlModify = forwardRef<Modify | null, OlModifyProps>(
   OlModifyComponent
 )
@@ -50,6 +72,22 @@ function OlModifyComponent(
   )
 }
 
+/**
+ * Hook to access the OpenLayers Modify interaction instance from the nearest parent OlModify component.
+ * Must be used within a descendant of OlModify.
+ *
+ * @returns The OpenLayers Modify interaction instance
+ * @throws {Error} If called outside of an OlModify component
+ *
+ * @example
+ * ```tsx
+ * function ModifyControl() {
+ *   const modify = useOlModify()
+ *   // Use modify instance
+ *   return null
+ * }
+ * ```
+ */
 export function useOlModify() {
   const context = useContext(OlModifyComponentContext)
   if (context === null) {

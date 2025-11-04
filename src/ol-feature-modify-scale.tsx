@@ -22,6 +22,25 @@ import {
 
 type OlModifyProps = { initialOptions?: Partial<ModifyOptions> }
 
+/**
+ * Modify interaction component specialized for scaling feature geometries.
+ * Displays draggable scale handles around features that allow proportional scaling
+ * from the center point.
+ *
+ * @param props.initialOptions - Configuration options for the modify interaction
+ * @param ref - Forwarded ref to expose the Modify interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap>
+ *   <OlVectorLayer visible={true}>
+ *     <OlVectorSource>
+ *       <OlFeatureModifyScale ref={modifyRef} initialOptions={{ pixelTolerance: 10 }} />
+ *     </OlVectorSource>
+ *   </OlVectorLayer>
+ * </OlMap>
+ * ```
+ */
 export const OlFeatureModifyScale = forwardRef<Modify | null, OlModifyProps>(
   OlFeatureModifyScaleComponent
 )
@@ -113,6 +132,21 @@ const modifyPointsStyle = new Circle({
   fill: new Fill({ color: '#000000' }),
 })
 
+/**
+ * Style function that generates scale handle styles around feature geometries.
+ * Displays draggable points positioned outside a minimum radius from the feature's center,
+ * allowing users to scale the geometry proportionally.
+ *
+ * @param feature - The OpenLayers feature to style
+ * @returns Style object with scale handle geometries, or null if no valid geometry
+ *
+ * @example
+ * ```tsx
+ * const layer = new VectorLayer({
+ *   style: styleWithModifyGeometry
+ * })
+ * ```
+ */
 export function styleWithModifyGeometry(feature: FeatureLike) {
   const modifyGeometry = feature.get('modifyGeometry')
   const geometry = modifyGeometry

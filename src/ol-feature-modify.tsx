@@ -22,6 +22,23 @@ type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>
 }>
 
+/**
+ * Modify interaction component that preserves the original feature geometry during editing.
+ * Clones and tracks geometry modifications, allowing for controlled geometry updates.
+ *
+ * @param props.initialOptions - Configuration options for the modify interaction
+ * @param props.children - Child components
+ * @param ref - Forwarded ref to expose the Modify interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlVectorSource>
+ *   <OlFeatureModify ref={modifyRef} initialOptions={{ pixelTolerance: 10 }}>
+ *     {children}
+ *   </OlFeatureModify>
+ * </OlVectorSource>
+ * ```
+ */
 export const OlFeatureModify = forwardRef<Modify | null, OlModifyProps>(
   OlFeatureModifyComponent
 )
@@ -85,6 +102,20 @@ function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
   })
 }
 
+/**
+ * Style function that returns the cloned modify geometry or current geometry.
+ * Used during feature modification to display the geometry being edited.
+ *
+ * @param feature - The OpenLayers feature to style
+ * @returns Style object with the modify geometry or current geometry
+ *
+ * @example
+ * ```tsx
+ * const layer = new VectorLayer({
+ *   style: styleWithModifyGeometry
+ * })
+ * ```
+ */
 export function styleWithModifyGeometry(feature: FeatureLike) {
   const modifyGeometry = feature.get('modifyGeometry')
   const geometry = modifyGeometry

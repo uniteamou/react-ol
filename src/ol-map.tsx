@@ -12,6 +12,22 @@ import React, {
 import { Map } from 'ol'
 import type { MapOptions } from 'ol/Map'
 
+/**
+ * OpenLayers Map component that provides a React wrapper around the OpenLayers Map class.
+ * Creates a map container and provides the map instance to child components via context.
+ *
+ * @param props.children - Child components to render within the map context
+ * @param props.initialOptions - Initial configuration options for the OpenLayers Map instance
+ * @param ref - Forwarded ref to expose the Map instance
+ *
+ * @example
+ * ```tsx
+ * <OlMap ref={mapRef} initialOptions={{ controls: [] }}>
+ *   <OlView />
+ *   <OlTileLayer />
+ * </OlMap>
+ * ```
+ */
 export const OlMap = forwardRef(OlMapComponent)
 
 type MapProps = {
@@ -50,6 +66,23 @@ function OlMapComponent(
 }
 
 const OlMapContext = createContext<Map | null>(null)
+
+/**
+ * Hook to access the OpenLayers Map instance from the nearest parent OlMap component.
+ * Must be used within a descendant of OlMap.
+ *
+ * @returns The OpenLayers Map instance
+ * @throws {Error} If called outside of an OlMap component
+ *
+ * @example
+ * ```tsx
+ * function MapControl() {
+ *   const map = useOlMap()
+ *   // Use map instance
+ *   return <div>Map ready</div>
+ * }
+ * ```
+ */
 export function useOlMap() {
   const context = useContext(OlMapContext)
   if (context === null) {

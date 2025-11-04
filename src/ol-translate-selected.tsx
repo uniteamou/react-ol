@@ -12,6 +12,23 @@ import { OlTranslate, type OlTranslateProps } from './ol-translate'
 
 type OlTranslateSelectedProps = OlTranslateProps
 
+/**
+ * Translate interaction component that automatically translates currently selected features.
+ * Integrates with OlSelect to provide translate capabilities for the active selection.
+ * Must be used within an OlSelect context.
+ *
+ * @param props.initialOptions - Configuration options for the translate interaction
+ * @param ref - Forwarded ref to expose the Translate interaction instance
+ *
+ * @example
+ * ```tsx
+ * <OlSelect>
+ *   <OlTranslateSelected ref={translateRef}>
+ *     {children}
+ *   </OlTranslateSelected>
+ * </OlSelect>
+ * ```
+ */
 export const OlTranslateSelected = forwardRef<
   Translate | null,
   OlTranslateSelectedProps
