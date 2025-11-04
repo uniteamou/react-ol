@@ -47,7 +47,7 @@
     "noUnusedLocals": false,
     "noUnusedParameters": false
   },
-  "plugin": ["@shipgirl/typedoc-plugin-versions"],
+  "plugin": ["@shipgirl/typedoc-plugin-versions", "typedoc-github-theme"],
   "versions": {
     "stable": "auto",
     "dev": "auto"
