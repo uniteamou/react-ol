@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - UNI-76/introduce-documentation-generator
     paths:
       - "src/**"
       - "docs/**"
