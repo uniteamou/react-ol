@@ -15,6 +15,7 @@
 /lib
 **/dist
 docs/api
+docs/_api
 
 # debug
 npm-debug.log*

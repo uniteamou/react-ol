@@ -43,7 +43,7 @@
     "format": "prettier ./src/* --write",
     "prepack": "npm run build",
     "docs:generate": "typedoc",
-    "docs:clean": "del-cli ./docs/api",
+    "docs:clean": "del-cli ./docs/_api",
     "docs:build": "npm run docs:clean && npm run docs:generate"
   },
   "devDependencies": {
