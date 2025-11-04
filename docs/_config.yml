@@ -1,16 +1,13 @@
-# Jekyll configuration for React OL Documentation
 title: React OL Documentation
 description: A lightweight React wrapper for OpenLayers — build interactive maps declaratively using components and hooks.
 baseurl: "/react-ol"
 url: "https://uniteamou.github.io"
 
-# Theme
 theme: jekyll-theme-cayman
 
-# Build settings
 markdown: kramdown
 
-# Exclude files from processing
+include: docs/guides
 exclude:
   - node_modules
   - package.json
