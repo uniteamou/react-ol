@@ -17,6 +17,7 @@ exclude:
   - package.json
   - package-lock.json
   - README.md
+  - api
 
 # Include files starting with underscore
 include:
@@ -46,10 +47,6 @@ titles_from_headings:
   strip_title: true
   collections: false
 
-# Disable Jekyll processing for TypeDoc output
-# TypeDoc generates complete HTML that should not be processed
-defaults:
-  - scope:
-      path: "api"
-    values:
-      layout: none
+# Keep static assets from API docs
+keep_files:
+  - api
