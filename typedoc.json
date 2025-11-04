@@ -67,5 +67,5 @@
     "stable": "auto",
     "dev": "auto"
   },
-  "projectDocuments": ["docs/guides/*.md"]
+  "projectDocuments": ["docs/*.md", "docs/**/*.md"]
 }
