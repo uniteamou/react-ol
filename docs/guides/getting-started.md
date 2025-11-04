@@ -1,3 +1,9 @@
+---
+title: Guides
+group: Documents
+category: Guides
+---
+
 # Getting Started with React OL
 
 React OL is a lightweight React wrapper for [OpenLayers](https://openlayers.org/) — build interactive maps declaratively using components and hooks.
