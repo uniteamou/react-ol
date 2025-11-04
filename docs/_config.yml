@@ -1,0 +1,55 @@
+# Jekyll configuration for React OL Documentation
+title: React OL Documentation
+description: A lightweight React wrapper for OpenLayers — build interactive maps declaratively using components and hooks.
+baseurl: "/react-ol"
+url: "https://uniteamou.github.io"
+
+# Theme
+theme: jekyll-theme-cayman
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Exclude files from processing
+exclude:
+  - node_modules
+  - package.json
+  - package-lock.json
+  - README.md
+
+# Include files starting with underscore
+include:
+  - _*
+
+# Plugins
+plugins:
+  - jekyll-relative-links
+  - jekyll-optional-front-matter
+  - jekyll-readme-index
+  - jekyll-titles-from-headings
+
+# Plugin settings
+relative_links:
+  enabled: true
+  collections: false
+
+optional_front_matter:
+  remove_originals: false
+
+readme_index:
+  enabled: true
+  remove_originals: false
+
+titles_from_headings:
+  enabled: true
+  strip_title: true
+  collections: false
+
+# Disable Jekyll processing for TypeDoc output
+# TypeDoc generates complete HTML that should not be processed
+defaults:
+  - scope:
+      path: "api"
+    values:
+      layout: none
