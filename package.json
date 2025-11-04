@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/uniteamou/react-ol/issues"
   },
-  "homepage": "https://github.com/uniteamou/react-ol#readme",
+  "homepage": "https://uniteamou.github.io/react-ol/dev/",
   "scripts": {
     "clean": "del-cli ./lib",
     "build": "tsup",
