@@ -53,11 +53,6 @@ jobs:
           source: ./docs
           destination: ./_site
 
-      - name: Copy API documentation to build output
-        run: |
-          mkdir -p ./_site/api
-          cp -r ./docs/_api/* ./_site/api/
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
