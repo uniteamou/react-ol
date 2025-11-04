@@ -46,5 +46,10 @@
   "compilerOptions": {
     "noUnusedLocals": false,
     "noUnusedParameters": false
+  },
+  "plugin": ["@shipgirl/typedoc-plugin-versions"],
+  "versions": {
+    "stable": "auto",
+    "dev": "auto"
   }
 }
