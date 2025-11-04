@@ -14,7 +14,7 @@
 # build
 /lib
 **/dist
-docs/api
+docs_generated
 
 # debug
 npm-debug.log*

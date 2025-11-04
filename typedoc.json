@@ -2,7 +2,7 @@
   "$schema": "https://typedoc.org/schema.json",
   "entryPoints": ["src/index.ts"],
   "entryPointStrategy": "expand",
-  "out": "docs",
+  "out": "docs_generated",
   "readme": "none",
   "excludePrivate": true,
   "excludeProtected": false,
