@@ -10,6 +10,8 @@
   "excludeInternal": true,
   "includeVersion": true,
   "sort": ["source-order"],
+  "customCss": "./custom-typedoc.css",
+  "customJs": "./custom-typedoc.js",
   "gitRevision": "main",
   "githubPages": false,
   "disableSources": false,
