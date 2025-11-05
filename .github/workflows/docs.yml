@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - UNI-79/add-guides
     paths:
       - "src/**"
       - "docs/**"
