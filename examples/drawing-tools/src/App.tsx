@@ -1,7 +1,5 @@
-import { useState, useRef } from 'react';
-import { OlMap, OlView, OlTileLayer, OlSourceOSM, OlVectorLayer, OlVectorSource, OlDraw, useOlDrawEventListener } from '@uniteamou/react-ol';
-import type { Draw } from 'ol/interaction';
-import type { DrawEvent } from 'ol/interaction/Draw';
+import { useState } from 'react';
+import { OlMap, OlView, OlTileLayer, OlSourceOSM, OlVectorLayer, OlVectorSource, OlDraw } from '@uniteamou/react-ol';
 import type { Options } from 'ol/interaction/Draw';
 import 'ol/ol.css';
 
@@ -9,16 +7,6 @@ type DrawType = Options['type'] | null;
 
 function App() {
   const [drawType, setDrawType] = useState<DrawType>('Point');
-  const [featureCount, setFeatureCount] = useState(0);
-  const drawRef = useRef<Draw | null>(null);
-
-  // Listen to draw events
-  useOlDrawEventListener(drawRef.current, 'drawend', (evt: DrawEvent) => {
-    const feature = evt.feature;
-    const geomType = feature.getGeometry()?.getType();
-    console.log('Feature drawn:', geomType);
-    setFeatureCount(prev => prev + 1);
-  });
 
   return (
     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
@@ -115,16 +103,6 @@ function App() {
             🚫 Stop Drawing
           </button>
         </div>
-
-        <div style={{
-          marginTop: '15px',
-          paddingTop: '15px',
-          borderTop: '1px solid #dee2e6'
-        }}>
-          <p style={{ margin: 0, fontSize: '14px' }}>
-            <strong>Features drawn:</strong> {featureCount}
-          </p>
-        </div>
       </div>
 
       <OlMap>
@@ -138,7 +116,7 @@ function App() {
           <OlVectorSource>
             {/* Only render OlDraw when a draw type is selected */}
             {drawType && (
-              <OlDraw ref={drawRef} type={drawType} />
+              <OlDraw key={drawType} type={drawType} />
             )}
           </OlVectorSource>
         </OlVectorLayer>
