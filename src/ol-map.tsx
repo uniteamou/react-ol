@@ -22,7 +22,7 @@ import type { MapOptions } from 'ol/Map'
  *
  * @example
  * ```tsx
- * <OlMap ref={mapRef} initialOptions={{ controls: [] }}>
+ * <OlMap>
  *   <OlView />
  *   <OlTileLayer />
  * </OlMap>

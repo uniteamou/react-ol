@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/uniteamou/react-ol/issues"
   },
-  "homepage": "https://github.com/uniteamou/react-ol#readme",
+  "homepage": "https://uniteamou.github.io/react-ol/dev/",
   "scripts": {
     "clean": "del-cli ./lib",
     "build": "tsup",
@@ -41,10 +41,14 @@
     "semantic-release": "semantic-release",
     "lint": "eslint ./src/*",
     "format": "prettier ./src/* --write",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "docs:generate": "typedoc",
+    "docs:clean": "del-cli ./docs_generated",
+    "docs:build": "npm run docs:clean && npm run docs:generate"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@shipgirl/typedoc-plugin-versions": "^0.3.2",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^16.0.0",
     "@types/eslint__js": "^8.42.3",
@@ -55,6 +59,7 @@
     "@types/react": "^18",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
+    "@typhonjs-typedoc/typedoc-theme-dmt": "^0.4.0",
     "del-cli": "^6.0.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^9.1.0",
@@ -65,6 +70,8 @@
     "ts-jest": "^29.4.0",
     "ts-node": "^10.9.2",
     "tsup": "^8.3.5",
+    "typedoc": "^0.28.14",
+    "typedoc-github-theme": "^0.3.1",
     "typescript": "^5.7.3"
   },
   "peerDependencies": {

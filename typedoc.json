@@ -1,0 +1,71 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["src/index.ts"],
+  "entryPointStrategy": "expand",
+  "out": "docs_generated",
+  "readme": "none",
+  "excludePrivate": true,
+  "excludeProtected": false,
+  "excludeExternals": true,
+  "excludeInternal": true,
+  "includeVersion": true,
+  "sort": ["source-order"],
+  "gitRevision": "main",
+  "githubPages": false,
+  "disableSources": false,
+  "navigationLinks": {
+    "GitHub": "https://github.com/uniteamou/react-ol"
+  },
+  "categorizeByGroup": true,
+  "categoryOrder": [
+    "Map",
+    "View & Layers",
+    "Sources",
+    "Features",
+    "Interactions",
+    "Hooks",
+    "Utilities",
+    "*"
+  ],
+  "groupOrder": [
+    "Components",
+    "Hooks",
+    "Functions",
+    "Type Aliases",
+    "*"
+  ],
+  "validation": {
+    "notExported": true,
+    "invalidLink": true,
+    "notDocumented": false
+  },
+  "commentStyle": "all",
+  "searchInComments": true,
+  "treatWarningsAsErrors": false,
+  "skipErrorChecking": true,
+  "compilerOptions": {
+    "noUnusedLocals": false,
+    "noUnusedParameters": false
+  },
+  "plugin": ["@shipgirl/typedoc-plugin-versions", "@typhonjs-typedoc/typedoc-theme-dmt"],
+  "theme": "default-modern",
+  "dmtLinksService": {
+    "GitHub": "https://github.com/uniteamou/react-ol"
+  },
+  "dmtNavigation": {
+    "moduleIcon": false,
+    "style": "full"
+  },
+  "dmtSearch": {
+    "fullName": false,
+    "limit": 10
+  },
+  "dmtSettings": {
+    "animation": true
+  },
+  "versions": {
+    "stable": "auto",
+    "dev": "auto"
+  },
+  "projectDocuments": ["docs/*.md", "docs/**/*.md"]
+}
