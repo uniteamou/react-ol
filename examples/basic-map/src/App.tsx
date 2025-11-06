@@ -1,4 +1,4 @@
-import { OlMap, OlView } from '@uniteamou/react-ol';
+import { OlMap, OlSourceOSM, OlTileLayer, OlView } from '@uniteamou/react-ol';
 import 'ol/ol.css';
 
 function App() {
@@ -12,6 +12,9 @@ function App() {
           center={[0, 0]}
           zoom={2}
         />
+        <OlTileLayer>
+          <OlSourceOSM />
+        </OlTileLayer>
       </OlMap>
     </div>
   );
