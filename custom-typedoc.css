@@ -1,0 +1,7 @@
+.tsd-navigation.settings {
+  display: none !important;
+}
+
+.tsd-navigation a[href*="modules/index.html"] {
+  display: none !important;
+}
