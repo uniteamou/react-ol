@@ -182,26 +182,3 @@ Stack multiple layers by adding them as children:
   </OlVectorLayer>
 </OlMap>
 ```
-
-## Next Steps
-
-- **[API Reference](../api/README.md)** - Explore all available components and hooks
-- **[Examples](./examples.md)** - See more advanced usage patterns
-- **[Interactions](./interactions.md)** - Learn about drawing, selecting, and modifying features
-- **[Layers & Sources](./layers-and-sources.md)** - Deep dive into layer types and data sources
-
-## Need Help?
-
-- Check out the [known issues](../../KNOWN_ISSUES.md)
-- Read the [contributing guide](../../CONTRIBUTING.md)
-- [Open an issue](https://github.com/uniteamou/react-ol/issues) on GitHub
-
-## TypeScript Support
-
-React OL is written in TypeScript and provides full type definitions. All OpenLayers types are re-exported for your convenience:
-
-```tsx
-import type { Map } from 'ol';
-import type { Coordinate } from 'ol/coordinate';
-import type { Feature } from 'ol';
-```

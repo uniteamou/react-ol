@@ -1,4 +1,4 @@
-import { OlMap, OlView } from 'react-ol';
+import { OlMap, OlView } from '@uniteamou/react-ol';
 import 'ol/ol.css';
 
 function App() {

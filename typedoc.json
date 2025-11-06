@@ -67,5 +67,12 @@
     "stable": "auto",
     "dev": "auto"
   },
-  "projectDocuments": ["docs/*.md", "docs/**/*.md"]
+  "projectDocuments": [
+    "docs/guides/getting-started.md",
+    "docs/guides/example-basic-map.md",
+    "docs/guides/example-markers.md",
+    "docs/guides/example-click-events.md",
+    "docs/guides/example-drawing-tools.md",
+    "docs/guides/example-custom-styling.md"
+  ]
 }

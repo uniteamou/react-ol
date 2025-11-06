@@ -1,5 +1,5 @@
 {
-  "name": "react-ol-example",
+  "name": "react-ol-click-events-example",
   "version": "1.0.0",
   "private": true,
   "type": "module",
@@ -12,7 +12,9 @@
   "dependencies": {
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-ol": "file:.."
+    "@uniteamou/react-ol": "^0.0.5",
+    "ol": "^9.2.4",
+    "ol-ext": "^4.0.23"
   },
   "devDependencies": {
     "@types/react": "^18.3.12",
