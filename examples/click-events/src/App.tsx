@@ -1,23 +1,25 @@
-import { useState, useRef, useEffect } from 'react';
-import { OlMap, OlView, OlTileLayer, OlSourceOSM, useOlMapEventListener } from '@uniteamou/react-ol';
-import { toLonLat } from 'ol/proj';
-import type { Map } from 'ol';
-import type { MapBrowserEvent } from 'ol';
+import { useCallback, useState, useRef, useEffect } from 'react';
+import { OlMap, OlView, OlTileLayer, OlSourceOSM } from '@uniteamou/react-ol';
+import type { Map, MapBrowserEvent } from 'ol';
 import 'ol/ol.css';
+import { Coordinate } from 'ol/coordinate';
 
 function App() {
   const mapRef = useRef<Map | null>(null);
-  const [clickedCoord, setClickedCoord] = useState<[number, number] | null>(null);
-  const [clickCount, setClickCount] = useState(0);
+  const [clickedCoord, setClickedCoord] = useState<Coordinate | null>(null);
 
-  // Use the hook to listen to map click events
-  useOlMapEventListener(mapRef.current, 'click', (evt: MapBrowserEvent<any>) => {
-    const coord = evt.coordinate;
-    // Convert from Web Mercator (map projection) to WGS84 (lon/lat)
-    const lonLat = toLonLat(coord);
-    setClickedCoord([lonLat[0], lonLat[1]]);
-    setClickCount(prev => prev + 1);
-  });
+  const handleMapClick = useCallback(function handleMapClick(evt: MapBrowserEvent<UIEvent>) {
+    const coordinates = evt.coordinate
+    setClickedCoord(coordinates)
+  }, [setClickedCoord])
+
+  useEffect(() => {
+    if (!mapRef.current) return
+    mapRef.current.on('singleclick', handleMapClick)
+    return () => {
+      mapRef.current?.un('singleclick', handleMapClick)
+    }
+  }, [mapRef.current,])
 
   return (
     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
@@ -35,9 +37,6 @@ function App() {
         <h3 style={{ margin: '0 0 10px 0', fontSize: '16px' }}>Click on the Map!</h3>
         {clickedCoord ? (
           <>
-            <p style={{ margin: '5px 0', fontSize: '14px', fontWeight: 'bold' }}>
-              Click #{clickCount}
-            </p>
             <p style={{ margin: '5px 0', fontSize: '14px' }}>
               <strong>Longitude:</strong> {clickedCoord[0].toFixed(4)}°
             </p>
@@ -47,7 +46,6 @@ function App() {
             <button
               onClick={() => {
                 setClickedCoord(null);
-                setClickCount(0);
               }}
               style={{
                 marginTop: '10px',
