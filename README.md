@@ -64,7 +64,7 @@ Run your app and you should see a full interactive map powered by OpenLayers ðŸŽ
 A full Vite-based example is included in the repo:
 
 ```bash
-cd example
+cd examples/basic-map
 npm install
 npm run dev
 ```

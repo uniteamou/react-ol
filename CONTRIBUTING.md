@@ -19,7 +19,7 @@ npm install
 ### 2. Run the Example App
 To quickly test your changes in a live environment:
 ```bash
-cd example
+cd examples/basic-map
 npm install
 npm run dev
 ```
