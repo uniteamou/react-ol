@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   forwardRef,
   memo,
@@ -20,7 +20,7 @@ import shallowEqual from './shallow-equal'
 type OlVectorLayerProps = {
   children?: ReactNode
   properties?: Record<string, unknown>
-  visible: boolean
+  visible?: boolean
   style?: VectorLayerOptions<FeatureLike>['style']
   maxZoom?: VectorLayerOptions<FeatureLike>['maxZoom']
   minZoom?: VectorLayerOptions<FeatureLike>['minZoom']
@@ -30,7 +30,7 @@ type OlVectorLayerProps = {
 export function OlVectorLayerComponent(
   {
     children,
-    visible,
+    visible = true,
     properties,
     style,
     minZoom,
