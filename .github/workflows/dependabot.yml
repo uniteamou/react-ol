@@ -1,5 +1,8 @@
 name: Dependabot fetch metadata
-on: pull_request
+on:
+  pull_request:
+  schedule:
+    - cron: "30 1 * * *" # Runs everyday 1:30 a.m.
 
 permissions:
   pull-requests: write
