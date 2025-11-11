@@ -1,4 +1,4 @@
-import React, {
+import {
   createContext,
   forwardRef,
   type PropsWithChildren,
@@ -13,6 +13,9 @@ import type { Options as SelectOptions } from 'ol/interaction/Select'
 
 import { useOlMap } from './ol-map'
 import { useOlVectorLayer } from './ol-vector-layer'
+import type Layer from 'ol/layer/Layer'
+import type { Source } from 'ol/source'
+import type LayerRenderer from 'ol/renderer/Layer'
 
 type OlFeatureSelectProps = PropsWithChildren<{
   initialOptions?: SelectOptions
@@ -89,8 +92,10 @@ function LayerSelectComponent(
   forwardedRef: Ref<Select | null>
 ) {
   const layer = useOlVectorLayer()
-  const initialOptions = { layers: [layer], ...props.initialOptions }
-
+  const initialOptions: SelectOptions = {
+    ...props.initialOptions,
+    layers: [layer as Layer<Source, LayerRenderer<Layer<Source>>>],
+  }
   return (
     <OlSelect ref={forwardedRef} initialOptions={initialOptions}>
       {props.children}
