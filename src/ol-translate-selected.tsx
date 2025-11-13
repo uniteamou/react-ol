@@ -41,7 +41,7 @@ export function OlTranslateSelectedComponent(
   const select = useOlLayerSelect()
   const [translate, setTranslate] = useState<Translate | null>(null)
 
-  useImperativeHandle(forwardedRef, () => translate, [translate])
+  useImperativeHandle<Translate | null, Translate | null>(forwardedRef, () => translate, [translate])
 
   const initialOptions: OlTranslateSelectedProps['initialOptions'] = useMemo(
     () => ({

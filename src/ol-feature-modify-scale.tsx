@@ -51,7 +51,7 @@ function OlFeatureModifyScaleComponent(
 ) {
   const [modify, setModify] = useState<Modify | null>(null)
 
-  useImperativeHandle(forwardedRef, () => modify, [modify])
+  useImperativeHandle<Modify | null, Modify | null>(forwardedRef, () => modify, [modify])
 
   useEffect(() => {
     if (!modify) return
@@ -106,7 +106,7 @@ function updateModifyGeometry(
 }
 
 function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function (feature) {
+  event.features.forEach(function(feature) {
     const modifyGeometry = feature.get('modifyGeometry')
     if (!modifyGeometry) return
 
@@ -116,7 +116,7 @@ function removeModifyGeometry(event: Parameters<ModifyListener>[0]) {
 }
 
 function addModifyGeometry(event: Parameters<ModifyListener>[0]) {
-  event.features.forEach(function (feature) {
+  event.features.forEach(function(feature) {
     if (!feature || !feature.getGeometry()) return
 
     feature.set(
@@ -188,7 +188,7 @@ function calculateCenter(geometry: Geometry) {
   let sqDistances: number[] = []
   if (coordinates) {
     sqDistances = coordinates
-      .map(function (coordinate) {
+      .map(function(coordinate) {
         if (!coordinate[0] || !coordinate[1] || !center[0] || !center[1])
           return -1
         const dx = coordinate[0] - center[0]
