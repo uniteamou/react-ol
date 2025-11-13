@@ -18,6 +18,10 @@
   "publishConfig": {
     "access": "public"
   },
+  "engines": {
+    "node": "^24",
+    "npm": "^11"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/uniteamou/react-ol.git"
