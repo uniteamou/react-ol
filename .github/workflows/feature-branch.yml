@@ -36,7 +36,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "22.3.0"
+          node-version: "24.10.0"
       - run: npm install
       - run: npm run lint
 
@@ -45,11 +45,11 @@ jobs:
 
       - name: Fail if Prettier made changes
         run: |
-          if ! git diff --quiet; then
+          if ! git diff --quiet ./src; then
             echo "Prettier found unformatted files:"
-            git diff --name-only
+            git diff --name-only ./src
             echo ""
-            echo "Please run 'npx prettier --write .' locally and commit the changes."
+            echo "Please run 'npm run format' locally and commit the changes."
             exit 1
           fi
 
@@ -59,7 +59,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: "22.3.0"
+          node-version: "24.10.0"
       - run: npm install
 
       - name: Run Prettier and try to fix issues
