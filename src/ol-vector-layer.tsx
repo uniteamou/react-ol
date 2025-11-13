@@ -16,15 +16,16 @@ import VectorLayer, {
 
 import { useOlMap } from './ol-map'
 import shallowEqual from './shallow-equal'
+import VectorSource from 'ol/source/Vector'
 
 type OlVectorLayerProps = {
   children?: ReactNode
   properties?: Record<string, unknown>
   visible: boolean
-  style?: VectorLayerOptions<FeatureLike>['style']
-  maxZoom?: VectorLayerOptions<FeatureLike>['maxZoom']
-  minZoom?: VectorLayerOptions<FeatureLike>['minZoom']
-  zIndex?: VectorLayerOptions<FeatureLike>['zIndex']
+  style?: VectorLayerOptions<VectorSource<FeatureLike>>['style']
+  maxZoom?: VectorLayerOptions<VectorSource<FeatureLike>>['maxZoom']
+  minZoom?: VectorLayerOptions<VectorSource<FeatureLike>>['minZoom']
+  zIndex?: VectorLayerOptions<VectorSource<FeatureLike>>['zIndex']
 }
 
 export function OlVectorLayerComponent(
@@ -37,7 +38,7 @@ export function OlVectorLayerComponent(
     maxZoom,
     zIndex,
   }: OlVectorLayerProps,
-  forwardedRef: Ref<VectorLayer<FeatureLike>>
+  forwardedRef: Ref<VectorLayer<VectorSource<FeatureLike>>>
 ) {
   const [vectorLayer] = useState(() => new VectorLayer())
   useImperativeHandle(forwardedRef, () => vectorLayer, [vectorLayer])
@@ -127,7 +128,7 @@ export const OlVectorLayer = memo(
   }
 )
 
-const OlVectorLayerContext = createContext<VectorLayer<FeatureLike> | null>(
+const OlVectorLayerContext = createContext<VectorLayer<VectorSource<FeatureLike>> | null>(
   null
 )
 
