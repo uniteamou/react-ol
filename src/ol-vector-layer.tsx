@@ -21,7 +21,7 @@ import VectorSource from 'ol/source/Vector'
 type OlVectorLayerProps = {
   children?: ReactNode
   properties?: Record<string, unknown>
-  visible: boolean
+  visible?: boolean
   style?: VectorLayerOptions<VectorSource<FeatureLike>>['style']
   maxZoom?: VectorLayerOptions<VectorSource<FeatureLike>>['maxZoom']
   minZoom?: VectorLayerOptions<VectorSource<FeatureLike>>['minZoom']
@@ -31,7 +31,7 @@ type OlVectorLayerProps = {
 export function OlVectorLayerComponent(
   {
     children,
-    visible,
+    visible = true,
     properties,
     style,
     minZoom,
