@@ -128,9 +128,9 @@ export const OlVectorLayer = memo(
   }
 )
 
-const OlVectorLayerContext = createContext<VectorLayer<VectorSource<FeatureLike>> | null>(
-  null
-)
+const OlVectorLayerContext = createContext<VectorLayer<
+  VectorSource<FeatureLike>
+> | null>(null)
 
 /**
  * Hook to access the OpenLayers VectorLayer instance from the nearest parent OlVectorLayer component.

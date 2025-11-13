@@ -201,7 +201,7 @@ export class TranslateMiddle extends Translate {
 
       const distance = Math.sqrt(
         Math.pow(point[0] - midpoint[0], 2) +
-        Math.pow(point[1] - midpoint[1], 2)
+          Math.pow(point[1] - midpoint[1], 2)
       )
 
       if (distance < minDistance) {
