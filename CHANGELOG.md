@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/uniteamou/react-ol/compare/v0.1.0...v0.1.0) (2025-11-14)
+
+
+### Miscellaneous Chores
+
+* **main:** release 0.1.0 ([#39](https://github.com/uniteamou/react-ol/issues/39)) ([#48](https://github.com/uniteamou/react-ol/issues/48)) ([3f829bd](https://github.com/uniteamou/react-ol/commit/3f829bd32486ae36e7b75c8163bcfa4104324da6))
+
 ## [0.1.0](https://github.com/uniteamou/react-ol/compare/v0.0.5...v0.1.0) (2025-11-14)
 
 
