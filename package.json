@@ -59,7 +59,7 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^22.12.0",
     "@types/ol-ext": "npm:@siedlerchr/types-ol-ext@^3.5.0",
-    "@types/react": "^18",
+    "@types/react": "^19",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
     "@typhonjs-typedoc/typedoc-theme-dmt": "^0.4.0",
@@ -80,7 +80,7 @@
   "peerDependencies": {
     "ol": "^10.7.0",
     "ol-ext": "^4.0.23",
-    "react": "^18",
-    "react-dom": "^18"
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   }
 }

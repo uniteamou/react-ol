@@ -1,10 +1,4 @@
-import React, {
-  forwardRef,
-  type Ref,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react'
+import React, { useEffect, useImperativeHandle, useState } from 'react'
 import { getTopLeft } from 'ol/extent'
 import { get as getProjection } from 'ol/proj'
 import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ'
@@ -61,6 +55,15 @@ class ArcGISImageServerXYZ extends XYZ {
   }
 }
 
+type OlTileSourceProps = {
+  initialOptions: {
+    url: string
+    maxZoom?: number
+    attributions?: string
+  }
+  ref?: React.RefObject<ArcGISImageServerXYZ | null>
+}
+
 /**
  * OpenLayers tile source component for ArcGIS Image Server using XYZ tile scheme with custom BBOX export.
  * Generates tile URLs with BBOX parameters for ArcGIS export endpoints.
@@ -70,7 +73,7 @@ class ArcGISImageServerXYZ extends XYZ {
  * @param props.initialOptions.url - Base URL of the ArcGIS Image Server
  * @param props.initialOptions.maxZoom - Maximum zoom level
  * @param props.initialOptions.attributions - Attribution text for the source
- * @param ref - Forwarded ref to expose the ArcGISImageServerXYZ instance
+ * @param props.ref - Ref to expose the ArcGISImageServerXYZ instance
  *
  * @example
  * ```tsx
@@ -84,28 +87,16 @@ class ArcGISImageServerXYZ extends XYZ {
  * </OlTileLayer>
  * ```
  */
-export const OlSourceCustomArcGISXYZ = forwardRef(
-  OlSourceCustomArcGISXYZComponent
-)
-
-type OlTileSourceProps = {
-  initialOptions: {
-    url: string
-    maxZoom?: number
-    attributions?: string
-  }
-}
-
-function OlSourceCustomArcGISXYZComponent(
-  { initialOptions }: OlTileSourceProps,
-  forwardedRef: Ref<ArcGISImageServerXYZ | null>
-) {
+export function OlSourceCustomArcGISXYZ({
+  initialOptions,
+  ref,
+}: OlTileSourceProps) {
   const layer = useOlTileLayer()
   const [tileSource] = useState(() => {
     return new ArcGISImageServerXYZ(initialOptions)
   })
 
-  useImperativeHandle(forwardedRef, () => tileSource, [tileSource])
+  useImperativeHandle(ref, () => tileSource, [tileSource])
 
   useEffect(() => {
     layer.setSource(tileSource)

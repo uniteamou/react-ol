@@ -1,8 +1,6 @@
 import React, {
   createContext,
-  forwardRef,
   type PropsWithChildren,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -15,7 +13,12 @@ import TranslateMiddle from './translate-middle'
 
 export type OlTranslateMiddleProps = PropsWithChildren<{
   initialOptions?: TranslateOptions
+  ref?: React.RefObject<TranslateMiddle | null>
 }>
+
+const OlTranslateMiddleComponentContext = createContext<TranslateMiddle | null>(
+  null
+)
 
 /**
  * Custom Translate interaction component that allows dragging line segment midpoints.
@@ -24,7 +27,7 @@ export type OlTranslateMiddleProps = PropsWithChildren<{
  *
  * @param props.initialOptions - Configuration options for the translate interaction
  * @param props.children - Child components
- * @param ref - Forwarded ref to expose the TranslateMiddle interaction instance
+ * @param props.ref - Ref to expose the TranslateMiddle interaction instance
  *
  * @example
  * ```tsx
@@ -35,23 +38,15 @@ export type OlTranslateMiddleProps = PropsWithChildren<{
  * </OlMap>
  * ```
  */
-export const OlTranslateMiddle = forwardRef<
-  TranslateMiddle | null,
-  OlTranslateMiddleProps
->(OlTranslateMiddleComponent)
-
-const OlTranslateMiddleComponentContext = createContext<TranslateMiddle | null>(
-  null
-)
-
-function OlTranslateMiddleComponent(
-  { initialOptions, children }: OlTranslateMiddleProps,
-  forwardedRef: Ref<TranslateMiddle | null>
-) {
+export function OlTranslateMiddle({
+  initialOptions,
+  children,
+  ref,
+}: OlTranslateMiddleProps) {
   const map = useOlMap()
   const [translateMiddle] = useState(() => new TranslateMiddle(initialOptions))
 
-  useImperativeHandle(forwardedRef, () => translateMiddle, [translateMiddle])
+  useImperativeHandle(ref, () => translateMiddle, [translateMiddle])
 
   useEffect(() => {
     map.addInteraction(translateMiddle)

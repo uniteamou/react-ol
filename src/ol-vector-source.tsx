@@ -1,8 +1,6 @@
 import React, {
   createContext,
-  forwardRef,
   type PropsWithChildren,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -16,13 +14,22 @@ import { useOlVectorLayer } from './ol-vector-layer'
 
 type OlVectorSourceType = VectorSource<Feature<Geometry>>
 
+type OlVectorSourceProps = PropsWithChildren & {
+  initialOptions?: ConstructorParameters<
+    typeof VectorSource<Feature<Geometry>>
+  >[number]
+  ref?: React.RefObject<OlVectorSourceType | null>
+}
+
+const OlVectorSourceContext = createContext<OlVectorSourceType | null>(null)
+
 /**
  * OpenLayers vector source component for providing vector feature data to a vector layer.
  * Must be used as a child of OlVectorLayer.
  *
  * @param props.initialOptions - Configuration options for the vector source
  * @param props.children - Child components to render within the source context (typically features)
- * @param ref - Forwarded ref to expose the VectorSource instance
+ * @param props.ref - Ref to expose the VectorSource instance
  *
  * @example
  * ```tsx
@@ -33,21 +40,13 @@ type OlVectorSourceType = VectorSource<Feature<Geometry>>
  * </OlVectorLayer>
  * ```
  */
-export const OlVectorSource = forwardRef(OlVectorSourceComponent)
-type OlVectorSourceProps = PropsWithChildren & {
-  initialOptions?: ConstructorParameters<
-    typeof VectorSource<Feature<Geometry>>
-  >[number]
-}
-
-const OlVectorSourceContext = createContext<OlVectorSourceType | null>(null)
-
-function OlVectorSourceComponent(
-  { initialOptions, children }: OlVectorSourceProps,
-  forwardedRef: Ref<OlVectorSourceType | null>
-) {
+export function OlVectorSource({
+  initialOptions,
+  children,
+  ref,
+}: OlVectorSourceProps) {
   const [source] = useState(() => new VectorSource(initialOptions))
-  useImperativeHandle(forwardedRef, () => source, [source])
+  useImperativeHandle(ref, () => source, [source])
   const layer = useOlVectorLayer()
 
   useEffect(() => {

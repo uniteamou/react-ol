@@ -1,8 +1,6 @@
 import React, {
   createContext,
-  forwardRef,
   type PropsWithChildren,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -16,7 +14,10 @@ import { useOlVectorLayer } from './ol-vector-layer'
 
 type OlFeatureSelectProps = PropsWithChildren<{
   initialOptions?: SelectOptions
+  ref?: React.RefObject<Select | null>
 }>
+
+const OlLayerSelectContext = createContext<Select | null>(null)
 
 /**
  * OpenLayers Select interaction component for selecting features on the map.
@@ -25,7 +26,7 @@ type OlFeatureSelectProps = PropsWithChildren<{
  *
  * @param props.initialOptions - Configuration options for the select interaction
  * @param props.children - Child components to render within the select context
- * @param ref - Forwarded ref to expose the Select interaction instance
+ * @param props.ref - Ref to expose the Select interaction instance
  *
  * @example
  * ```tsx
@@ -36,19 +37,15 @@ type OlFeatureSelectProps = PropsWithChildren<{
  * </OlMap>
  * ```
  */
-export const OlSelect = forwardRef<Select | null, OlFeatureSelectProps>(
-  OlSelectComponent
-)
-
-const OlLayerSelectContext = createContext<Select | null>(null)
-function OlSelectComponent(
-  { initialOptions, children }: OlFeatureSelectProps,
-  forwardedRef: Ref<Select | null>
-) {
+export function OlSelect({
+  initialOptions,
+  children,
+  ref,
+}: OlFeatureSelectProps) {
   const map = useOlMap()
   const [select] = useState(() => new Select(initialOptions))
 
-  useImperativeHandle(forwardedRef, () => select, [select])
+  useImperativeHandle(ref, () => select, [select])
 
   useEffect(() => {
     map.addInteraction(select)
@@ -71,7 +68,7 @@ function OlSelectComponent(
  *
  * @param props.initialOptions - Configuration options for the select interaction
  * @param props.children - Child components
- * @param ref - Forwarded ref to expose the Select interaction instance
+ * @param props.ref - Ref to expose the Select interaction instance
  *
  * @example
  * ```tsx
@@ -82,17 +79,12 @@ function OlSelectComponent(
  * </OlVectorLayer>
  * ```
  */
-export const OlLayerSelect = forwardRef(LayerSelectComponent)
-
-function LayerSelectComponent(
-  props: OlFeatureSelectProps,
-  forwardedRef: Ref<Select | null>
-) {
+export function OlLayerSelect(props: OlFeatureSelectProps) {
   const layer = useOlVectorLayer()
   const initialOptions = { layers: [layer], ...props.initialOptions }
 
   return (
-    <OlSelect ref={forwardedRef} initialOptions={initialOptions}>
+    <OlSelect ref={props.ref} initialOptions={initialOptions}>
       {props.children}
     </OlSelect>
   )

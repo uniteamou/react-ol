@@ -1,9 +1,7 @@
 import React, {
   createContext,
-  forwardRef,
   memo,
   type ReactNode,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -13,10 +11,10 @@ import type { FeatureLike } from 'ol/Feature'
 import VectorLayer, {
   type Options as VectorLayerOptions,
 } from 'ol/layer/Vector'
+import VectorSource from 'ol/source/Vector'
 
 import { useOlMap } from './ol-map'
 import shallowEqual from './shallow-equal'
-import VectorSource from 'ol/source/Vector'
 
 type OlVectorLayerProps = {
   children?: ReactNode
@@ -26,22 +24,21 @@ type OlVectorLayerProps = {
   maxZoom?: VectorLayerOptions<VectorSource<FeatureLike>>['maxZoom']
   minZoom?: VectorLayerOptions<VectorSource<FeatureLike>>['minZoom']
   zIndex?: VectorLayerOptions<VectorSource<FeatureLike>>['zIndex']
+  ref?: React.RefObject<VectorLayer<VectorSource<FeatureLike>>>
 }
 
-export function OlVectorLayerComponent(
-  {
-    children,
-    visible = true,
-    properties,
-    style,
-    minZoom,
-    maxZoom,
-    zIndex,
-  }: OlVectorLayerProps,
-  forwardedRef: Ref<VectorLayer<VectorSource<FeatureLike>>>
-) {
+export function OlVectorLayerComponent({
+  children,
+  visible,
+  properties,
+  style,
+  minZoom,
+  maxZoom,
+  zIndex,
+  ref,
+}: OlVectorLayerProps) {
   const [vectorLayer] = useState(() => new VectorLayer())
-  useImperativeHandle(forwardedRef, () => vectorLayer, [vectorLayer])
+  useImperativeHandle(ref, () => vectorLayer, [vectorLayer])
   const layerGroup = useOlMap() // TODO: useOlLayerGroup
 
   useEffect(() => {
@@ -57,6 +54,7 @@ export function OlVectorLayerComponent(
   }, [properties, vectorLayer])
 
   useEffect(() => {
+    if (typeof visible === 'undefined') return
     vectorLayer.setVisible(visible)
   }, [vectorLayer, visible])
 
@@ -99,7 +97,7 @@ export function OlVectorLayerComponent(
  * @param props.minZoom - Minimum zoom level for layer visibility (reactive)
  * @param props.maxZoom - Maximum zoom level for layer visibility (reactive)
  * @param props.zIndex - Layer z-index for rendering order (reactive)
- * @param ref - Forwarded ref to expose the VectorLayer instance
+ * @param props.ref - Ref to expose the VectorLayer instance
  *
  * @example
  * ```tsx
@@ -116,7 +114,7 @@ export function OlVectorLayerComponent(
  * ```
  */
 export const OlVectorLayer = memo(
-  forwardRef(OlVectorLayerComponent),
+  OlVectorLayerComponent,
   (prevProps, nextProps) => {
     const { properties: prevProperties, ...prevOtherProps } = prevProps
     const { properties: nextProperties, ...nextOtherProps } = nextProps

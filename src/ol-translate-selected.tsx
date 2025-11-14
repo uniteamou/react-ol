@@ -1,16 +1,12 @@
-import React, {
-  forwardRef,
-  type Ref,
-  useImperativeHandle,
-  useMemo,
-  useState,
-} from 'react'
+import React, { useImperativeHandle, useMemo, useState } from 'react'
 import { Translate } from 'ol/interaction'
 
 import { useOlLayerSelect } from './ol-select'
 import { OlTranslate, type OlTranslateProps } from './ol-translate'
 
-type OlTranslateSelectedProps = OlTranslateProps
+type OlTranslateSelectedProps = Omit<OlTranslateProps, 'ref'> & {
+  ref?: React.Ref<Translate | null>
+}
 
 /**
  * Translate interaction component that automatically translates currently selected features.
@@ -18,7 +14,7 @@ type OlTranslateSelectedProps = OlTranslateProps
  * Must be used within an OlSelect context.
  *
  * @param props.initialOptions - Configuration options for the translate interaction
- * @param ref - Forwarded ref to expose the Translate interaction instance
+ * @param props.ref - Ref to expose the Translate interaction instance
  *
  * @example
  * ```tsx
@@ -29,21 +25,13 @@ type OlTranslateSelectedProps = OlTranslateProps
  * </OlSelect>
  * ```
  */
-export const OlTranslateSelected = forwardRef<
-  Translate | null,
-  OlTranslateSelectedProps
->(OlTranslateSelectedComponent)
-
-export function OlTranslateSelectedComponent(
-  props: OlTranslateSelectedProps,
-  forwardedRef: Ref<Translate | null>
-) {
+export function OlTranslateSelected(props: OlTranslateSelectedProps) {
   const select = useOlLayerSelect()
   const [translate, setTranslate] = useState<Translate | null>(null)
 
   useImperativeHandle<Translate | null, Translate | null>(
-    forwardedRef,
-    () => translate,
+    props.ref,
+    () => translate!,
     [translate]
   )
 

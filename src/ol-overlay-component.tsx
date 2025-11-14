@@ -1,7 +1,5 @@
 import React, {
   createContext,
-  forwardRef,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -18,7 +16,10 @@ type OlOverlayProps = OverlayOptions &
   React.PropsWithChildren<{
     className?: Required<React.HTMLAttributes<HTMLDivElement>['className']>
     wrapperDivElementProps?: React.HTMLAttributes<HTMLDivElement>
+    ref?: React.RefObject<Overlay | null>
   }>
+
+const OlOverlayComponentContext = createContext<Overlay | null>(null)
 
 /**
  * OpenLayers Overlay component for displaying HTML elements anchored to map coordinates.
@@ -29,7 +30,7 @@ type OlOverlayProps = OverlayOptions &
  * @param props.className - CSS class name for the overlay wrapper div
  * @param props.wrapperDivElementProps - Additional HTML attributes for the wrapper div
  * @param props.position - Map coordinates [x, y] where the overlay should be positioned (reactive)
- * @param ref - Forwarded ref to expose the Overlay instance
+ * @param props.ref - Ref to expose the Overlay instance
  *
  * @example
  * ```tsx
@@ -40,26 +41,18 @@ type OlOverlayProps = OverlayOptions &
  * </OlMap>
  * ```
  */
-export const OlOverlay = forwardRef<Overlay | null, OlOverlayProps>(
-  OlOverlayComponent
-)
-
-const OlOverlayComponentContext = createContext<Overlay | null>(null)
-
-function OlOverlayComponent(
-  {
-    children,
-    className,
-    wrapperDivElementProps,
-    ...initialOptions
-  }: OlOverlayProps,
-  forwardedRef: Ref<Overlay | null>
-) {
+export function OlOverlay({
+  children,
+  className,
+  wrapperDivElementProps,
+  ref,
+  ...initialOptions
+}: OlOverlayProps) {
   const map = useOlMap()
   const [overlay] = useState(() => new Overlay(initialOptions))
   const overlayDivRef = useRef<HTMLDivElement | null>(null)
 
-  useImperativeHandle(forwardedRef, () => overlay, [overlay])
+  useImperativeHandle(ref, () => overlay, [overlay])
 
   useEffect(() => {
     map.addOverlay(overlay)

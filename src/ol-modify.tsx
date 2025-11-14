@@ -1,8 +1,6 @@
 import React, {
   createContext,
-  forwardRef,
   type PropsWithChildren,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -16,7 +14,10 @@ import { useOlVectorSource } from './ol-vector-source'
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>
+  ref?: React.Ref<Modify>
 }>
+
+const OlModifyComponentContext = createContext<Modify | null>(null)
 
 /**
  * OpenLayers Modify interaction component for editing feature geometries.
@@ -25,7 +26,7 @@ type OlModifyProps = PropsWithChildren<{
  *
  * @param props.initialOptions - Configuration options for the modify interaction
  * @param props.children - Child components to render within the modify context
- * @param ref - Forwarded ref to expose the Modify interaction instance
+ * @param props.ref - Ref to expose the Modify interaction instance
  *
  * @example
  * ```tsx
@@ -40,23 +41,14 @@ type OlModifyProps = PropsWithChildren<{
  * </OlMap>
  * ```
  */
-export const OlModify = forwardRef<Modify | null, OlModifyProps>(
-  OlModifyComponent
-)
-
-const OlModifyComponentContext = createContext<Modify | null>(null)
-
-function OlModifyComponent(
-  props: OlModifyProps,
-  forwardedRef: Ref<Modify | null>
-) {
+export function OlModify(props: OlModifyProps) {
   const map = useOlMap()
   const source = useOlVectorSource()
   const [modify] = useState(
     () => new Modify({ source, ...props.initialOptions })
   )
 
-  useImperativeHandle(forwardedRef, () => modify, [modify])
+  useImperativeHandle(props.ref, () => modify, [modify])
 
   useEffect(() => {
     map.addInteraction(modify)

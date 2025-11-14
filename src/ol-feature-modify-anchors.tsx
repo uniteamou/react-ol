@@ -1,7 +1,5 @@
 import React, {
-  forwardRef,
   type PropsWithChildren,
-  type Ref,
   useEffect,
   useImperativeHandle,
   useState,
@@ -25,6 +23,7 @@ import type { Coordinate } from 'ol/coordinate'
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>
+  ref?: React.Ref<Modify | null>
 }>
 
 /**
@@ -34,7 +33,7 @@ type OlModifyProps = PropsWithChildren<{
  *
  * @param props.initialOptions - Configuration options for the modify interaction
  * @param props.children - Child components
- * @param ref - Forwarded ref to expose the Modify interaction instance
+ * @param props.ref - Ref to expose the Modify interaction instance
  *
  * @example
  * ```tsx
@@ -47,22 +46,13 @@ type OlModifyProps = PropsWithChildren<{
  * </OlMap>
  * ```
  */
-export const OlFeatureModifyAnchors = forwardRef<Modify | null, OlModifyProps>(
-  OlFeatureModifyAnchorsComponent
-)
-
-function OlFeatureModifyAnchorsComponent(
-  props: OlModifyProps,
-  forwardedRef: Ref<Modify | null>
-) {
+export function OlFeatureModifyAnchors(props: OlModifyProps) {
   const [modify, setModify] = useState<Modify | null>(null)
   const select = useOlLayerSelect()
 
-  useImperativeHandle<Modify | null, Modify | null>(
-    forwardedRef,
-    () => modify,
-    [modify]
-  )
+  useImperativeHandle<Modify | null, Modify | null>(props.ref, () => modify, [
+    modify,
+  ])
 
   useEffect(() => {
     if (!modify) return

@@ -1,7 +1,5 @@
 import React, {
   createContext,
-  forwardRef,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -15,7 +13,10 @@ import { useOlVectorSource } from './ol-vector-source'
 
 type OlSnapProps = React.PropsWithChildren<{
   initialOptions?: Partial<SnapOptions>
+  ref?: React.RefObject<Snap | null>
 }>
+
+const OlSnapComponentContext = createContext<Snap | null>(null)
 
 /**
  * OpenLayers Snap interaction component for snapping drawn features to existing features.
@@ -24,7 +25,7 @@ type OlSnapProps = React.PropsWithChildren<{
  *
  * @param props.initialOptions - Configuration options for the snap interaction
  * @param props.children - Child components
- * @param ref - Forwarded ref to expose the Snap interaction instance
+ * @param props.ref - Ref to expose the Snap interaction instance
  *
  * @example
  * ```tsx
@@ -35,11 +36,7 @@ type OlSnapProps = React.PropsWithChildren<{
  * </OlVectorSource>
  * ```
  */
-export const OlSnap = forwardRef<Snap | null, OlSnapProps>(OlSnapComponent)
-
-const OlSnapComponentContext = createContext<Snap | null>(null)
-
-function OlSnapComponent(props: OlSnapProps, forwardedRef: Ref<Snap | null>) {
+export function OlSnap(props: OlSnapProps) {
   const map = useOlMap()
   const source = useOlVectorSource()
   const [snap] = useState(
@@ -50,7 +47,7 @@ function OlSnapComponent(props: OlSnapProps, forwardedRef: Ref<Snap | null>) {
       })
   )
 
-  useImperativeHandle(forwardedRef, () => snap, [snap])
+  useImperativeHandle(props.ref, () => snap, [snap])
 
   useEffect(() => {
     map.addInteraction(snap)
