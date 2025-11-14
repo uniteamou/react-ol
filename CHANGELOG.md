@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/uniteamou/react-ol/compare/v0.1.2...v0.2.0) (2025-11-14)
+
+
+### Features
+
+* update react ([#54](https://github.com/uniteamou/react-ol/issues/54)) ([8c520ed](https://github.com/uniteamou/react-ol/commit/8c520ed8ae1e7fb189c94a4b843bac7c51e3e2f4))
+
 ## [0.1.2](https://github.com/uniteamou/react-ol/compare/v0.1.1...v0.1.2) (2025-11-14)
 
 
