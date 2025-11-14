@@ -1,5 +1,18 @@
 # Changelog
 
+## [0.1.0](https://github.com/uniteamou/react-ol/compare/v0.0.5...v0.1.0) (2025-11-14)
+
+
+### Features
+
+* make OlVerctorLayer visible by default ([#41](https://github.com/uniteamou/react-ol/issues/41)) ([9604262](https://github.com/uniteamou/react-ol/commit/9604262cac287f02749c08304d1a916208854bc8))
+* update ol to 10 ([#38](https://github.com/uniteamou/react-ol/issues/38)) ([8640f7c](https://github.com/uniteamou/react-ol/commit/8640f7c423a373295012c6d21f59ed36c1feae38))
+
+
+### Bug Fixes
+
+* ol types and impretive handle ([#47](https://github.com/uniteamou/react-ol/issues/47)) ([fddb5f4](https://github.com/uniteamou/react-ol/commit/fddb5f4f1e56a8e6309411d1b36e01cd1e8cd476))
+
 ## [0.0.5](https://github.com/uniteamou/react-ol/compare/v0.0.4...v0.0.5) (2025-10-30)
 
 
