@@ -1,13 +1,12 @@
-import React, {
-  forwardRef,
-  type Ref,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react'
+import React, { useEffect, useImperativeHandle, useState } from 'react'
 import XYZ, { type Options as XYZOptions } from 'ol/source/XYZ'
 
 import { useOlTileLayer } from './ol-tile-layer'
+
+type OlSourceXYZProps = {
+  initialOptions?: XYZOptions
+  ref?: React.RefObject<XYZ | null>
+}
 
 /**
  * OpenLayers XYZ tile source component for custom tile servers using the XYZ URL pattern.
@@ -15,7 +14,7 @@ import { useOlTileLayer } from './ol-tile-layer'
  * Must be used as a child of OlTileLayer.
  *
  * @param props.initialOptions - Configuration options for the XYZ source
- * @param ref - Forwarded ref to expose the XYZ source instance
+ * @param props.ref - Ref to expose the XYZ source instance
  *
  * @example
  * ```tsx
@@ -30,18 +29,9 @@ import { useOlTileLayer } from './ol-tile-layer'
  * </OlTileLayer>
  * ```
  */
-export const OlSourceXYZ = forwardRef(OlSourceXYZComponent)
-
-type OlSourceXYZProps = {
-  initialOptions?: XYZOptions
-}
-
-function OlSourceXYZComponent(
-  { initialOptions }: OlSourceXYZProps,
-  forwardedRef: Ref<XYZ | null>
-) {
+export function OlSourceXYZ({ initialOptions, ref }: OlSourceXYZProps) {
   const [tileSource] = useState(() => new XYZ(initialOptions))
-  useImperativeHandle(forwardedRef, () => tileSource, [tileSource])
+  useImperativeHandle(ref, () => tileSource, [tileSource])
 
   const layer = useOlTileLayer()
 

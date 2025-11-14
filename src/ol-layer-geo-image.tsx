@@ -1,9 +1,7 @@
 import React, {
   createContext,
-  forwardRef,
   memo,
   type ReactNode,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -22,14 +20,18 @@ type OlLayerGeoImageProps = Options<ImageSource> & {
   children?: ReactNode
   properties?: Record<string, unknown>
   isVisible: boolean
+  ref?: React.RefObject<LayerGeoImageType>
 }
 
-export function OlLayerGeoImage(
-  { children, isVisible, properties, ...otherProperties }: OlLayerGeoImageProps,
-  forwardedRef: Ref<LayerGeoImageType>
-) {
+export function OlLayerGeoImage({
+  children,
+  isVisible,
+  properties,
+  ref,
+  ...otherProperties
+}: OlLayerGeoImageProps) {
   const [imageLayer] = useState(() => new LayerGeoImage(otherProperties))
-  useImperativeHandle(forwardedRef, () => imageLayer, [imageLayer])
+  useImperativeHandle(ref, () => imageLayer, [imageLayer])
   const layerGroup = useOlMap()
 
   useEffect(() => {
@@ -65,7 +67,7 @@ export function OlLayerGeoImage(
  * @param props.children - Child components to render within the layer context (typically image sources)
  * @param props.isVisible - Controls layer visibility
  * @param props.properties - Custom properties to attach to the layer
- * @param ref - Forwarded ref to expose the LayerGeoImage instance
+ * @param props.ref - Ref to expose the LayerGeoImage instance
  *
  * @example
  * ```tsx
@@ -76,18 +78,15 @@ export function OlLayerGeoImage(
  * </OlMap>
  * ```
  */
-export const OlImageLayer = memo(
-  forwardRef(OlLayerGeoImage),
-  (prevProps, nextProps) => {
-    const { properties: prevProperties, ...prevOtherProps } = prevProps
-    const { properties: nextProperties, ...nextOtherProps } = nextProps
+export const OlImageLayer = memo(OlLayerGeoImage, (prevProps, nextProps) => {
+  const { properties: prevProperties, ...prevOtherProps } = prevProps
+  const { properties: nextProperties, ...nextOtherProps } = nextProps
 
-    return (
-      shallowEqual(prevOtherProps, nextOtherProps) &&
-      shallowEqual(prevProperties, nextProperties)
-    )
-  }
-)
+  return (
+    shallowEqual(prevOtherProps, nextOtherProps) &&
+    shallowEqual(prevProperties, nextProperties)
+  )
+})
 
 const OlImageLayerContext = createContext<LayerGeoImage | null>(null)
 

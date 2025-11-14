@@ -1,10 +1,4 @@
-import React, {
-  forwardRef,
-  type Ref,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react'
+import React, { useEffect, useImperativeHandle, useState } from 'react'
 import { getCenter, getHeight, getWidth } from 'ol/extent'
 import Feature, { type FeatureLike } from 'ol/Feature'
 import { Geometry, LineString, MultiPoint, Point, Polygon } from 'ol/geom'
@@ -20,7 +14,10 @@ import {
   useOlModifyEventListener,
 } from './use-ol-modify-event-listener'
 
-type OlModifyProps = { initialOptions?: Partial<ModifyOptions> }
+type OlModifyProps = {
+  initialOptions?: Partial<ModifyOptions>
+  ref?: React.Ref<Modify | null>
+}
 
 /**
  * Modify interaction component specialized for scaling feature geometries.
@@ -28,7 +25,7 @@ type OlModifyProps = { initialOptions?: Partial<ModifyOptions> }
  * from the center point.
  *
  * @param props.initialOptions - Configuration options for the modify interaction
- * @param ref - Forwarded ref to expose the Modify interaction instance
+ * @param props.ref - Ref to expose the Modify interaction instance
  *
  * @example
  * ```tsx
@@ -41,21 +38,12 @@ type OlModifyProps = { initialOptions?: Partial<ModifyOptions> }
  * </OlMap>
  * ```
  */
-export const OlFeatureModifyScale = forwardRef<Modify | null, OlModifyProps>(
-  OlFeatureModifyScaleComponent
-)
-
-function OlFeatureModifyScaleComponent(
-  props: OlModifyProps,
-  forwardedRef: Ref<Modify | null>
-) {
+export function OlFeatureModifyScale(props: OlModifyProps) {
   const [modify, setModify] = useState<Modify | null>(null)
 
-  useImperativeHandle<Modify | null, Modify | null>(
-    forwardedRef,
-    () => modify,
-    [modify]
-  )
+  useImperativeHandle<Modify | null, Modify | null>(props.ref, () => modify!, [
+    modify,
+  ])
 
   useEffect(() => {
     if (!modify) return

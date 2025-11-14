@@ -1,7 +1,5 @@
 import React, {
   createContext,
-  forwardRef,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -15,9 +13,12 @@ import { useOlVectorSource } from './ol-vector-source'
 
 type OlDrawProps = {
   initialOptions?: Partial<DrawOptions>
+  ref?: React.RefObject<Draw | null>
 } & {
   type: DrawOptions['type']
 } & React.PropsWithChildren
+
+const OlDrawComponentContext = createContext<Draw | null>(null)
 
 /**
  * OpenLayers Draw interaction component for drawing new vector features.
@@ -27,7 +28,7 @@ type OlDrawProps = {
  * @param props.type - The geometry type to draw (e.g., 'Point', 'LineString', 'Polygon')
  * @param props.initialOptions - Configuration options for the draw interaction
  * @param props.children - Child components to render within the draw context
- * @param ref - Forwarded ref to expose the Draw interaction instance
+ * @param props.ref - Ref to expose the Draw interaction instance
  *
  * @example
  * ```tsx
@@ -38,11 +39,7 @@ type OlDrawProps = {
  * </OlVectorSource>
  * ```
  */
-export const OlDraw = forwardRef<Draw | null, OlDrawProps>(OlDrawComponent)
-
-const OlDrawComponentContext = createContext<Draw | null>(null)
-
-function OlDrawComponent(props: OlDrawProps, forwardedRef: Ref<Draw | null>) {
+export function OlDraw(props: OlDrawProps) {
   const map = useOlMap()
   const source = useOlVectorSource()
   const [draw] = useState(
@@ -54,7 +51,7 @@ function OlDrawComponent(props: OlDrawProps, forwardedRef: Ref<Draw | null>) {
       })
   )
 
-  useImperativeHandle(forwardedRef, () => draw, [draw])
+  useImperativeHandle(props.ref, () => draw, [draw])
 
   useEffect(() => {
     map.addInteraction(draw)

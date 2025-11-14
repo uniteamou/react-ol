@@ -1,8 +1,6 @@
 import React, {
   createContext,
-  forwardRef,
   type ReactNode,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -14,6 +12,13 @@ import TileSource from 'ol/source/Tile'
 
 import { useOlMap } from './ol-map'
 
+type OlTileLayerProps = {
+  children?: ReactNode
+  initialOptions?: Options<TileSource>
+  isVisible?: boolean
+  ref?: React.RefObject<TileLayer<TileSource> | null>
+}
+
 /**
  * OpenLayers tile layer component for displaying tiled map data.
  * Supports various tile sources like OSM, XYZ, ArcGIS, etc.
@@ -22,7 +27,7 @@ import { useOlMap } from './ol-map'
  * @param props.children - Child components to render within the layer context (typically tile sources)
  * @param props.initialOptions - Initial configuration options for the tile layer
  * @param props.isVisible - Controls layer visibility (default: true, reactive)
- * @param ref - Forwarded ref to expose the TileLayer instance
+ * @param props.ref - Ref to expose the TileLayer instance
  *
  * @example
  * ```tsx
@@ -33,19 +38,14 @@ import { useOlMap } from './ol-map'
  * </OlMap>
  * ```
  */
-export const OlTileLayer = forwardRef(OlTileLayerComponent)
-
-type OlTileLayerProps = {
-  children?: ReactNode
-  initialOptions?: Options<TileSource>
-  isVisible?: boolean
-}
-export function OlTileLayerComponent(
-  { children, initialOptions, isVisible = true }: OlTileLayerProps,
-  forwardedRef: Ref<TileLayer<TileSource> | null>
-) {
+export function OlTileLayer({
+  children,
+  initialOptions,
+  isVisible = true,
+  ref,
+}: OlTileLayerProps) {
   const [tileLayer] = useState(() => new TileLayer(initialOptions))
-  useImperativeHandle(forwardedRef, () => tileLayer, [tileLayer])
+  useImperativeHandle(ref, () => tileLayer, [tileLayer])
   const layerGroup = useOlMap() // TODO: useOlLayerGroup
 
   useEffect(() => {

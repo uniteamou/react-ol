@@ -1,8 +1,6 @@
 import React, {
   createContext,
-  forwardRef,
   type PropsWithChildren,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -16,7 +14,10 @@ import { useOlVectorLayer } from './ol-vector-layer'
 
 export type OlTranslateProps = PropsWithChildren<{
   initialOptions?: TranslateOptions
+  ref?: React.Ref<Translate>
 }>
+
+const OlTranslateComponentContext = createContext<Translate | null>(null)
 
 /**
  * OpenLayers Translate interaction component for moving features by dragging.
@@ -25,7 +26,7 @@ export type OlTranslateProps = PropsWithChildren<{
  *
  * @param props.initialOptions - Configuration options for the translate interaction
  * @param props.children - Child components to render within the translate context
- * @param ref - Forwarded ref to expose the Translate interaction instance
+ * @param props.ref - Ref to expose the Translate interaction instance
  *
  * @example
  * ```tsx
@@ -36,20 +37,15 @@ export type OlTranslateProps = PropsWithChildren<{
  * </OlMap>
  * ```
  */
-export const OlTranslate = forwardRef<Translate | null, OlTranslateProps>(
-  OlTranslateComponent
-)
-
-const OlTranslateComponentContext = createContext<Translate | null>(null)
-
-function OlTranslateComponent(
-  { initialOptions, children }: OlTranslateProps,
-  forwardedRef: Ref<Translate | null>
-) {
+export function OlTranslate({
+  initialOptions,
+  children,
+  ref,
+}: OlTranslateProps) {
   const map = useOlMap()
   const [translate] = useState(() => new Translate(initialOptions))
 
-  useImperativeHandle(forwardedRef, () => translate, [translate])
+  useImperativeHandle(ref, () => translate, [translate])
 
   useEffect(() => {
     map.addInteraction(translate)
@@ -71,7 +67,7 @@ function OlTranslateComponent(
  * Must be used within an OlVectorLayer.
  *
  * @param props.initialOptions - Configuration options for the translate interaction
- * @param ref - Forwarded ref to expose the Translate interaction instance
+ * @param props.ref - Ref to expose the Translate interaction instance
  *
  * @example
  * ```tsx
@@ -82,16 +78,14 @@ function OlTranslateComponent(
  * </OlVectorLayer>
  * ```
  */
-export const OlLayerTranslate = forwardRef(LayerTranslateComponent)
-
-function LayerTranslateComponent(
-  props: OlTranslateProps,
-  forwardedRef: Ref<Translate | null>
-) {
+export function OlLayerTranslate(props: OlTranslateProps) {
   const layer = useOlVectorLayer()
-  const initialOptions = { layers: [layer], ...props.initialOptions }
+  const initialOptions = {
+    layers: [layer as unknown as import('ol/layer/Layer').default],
+    ...props.initialOptions,
+  }
 
-  return <OlTranslate ref={forwardedRef} initialOptions={initialOptions} />
+  return <OlTranslate ref={props.ref} initialOptions={initialOptions} />
 }
 
 /**

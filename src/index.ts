@@ -78,10 +78,7 @@ export {
   type OlTranslateMiddleProps,
 } from './ol-translate-middle'
 export { default as TranslateMiddleClass } from './translate-middle'
-export {
-  OlTranslateSelected,
-  OlTranslateSelectedComponent,
-} from './ol-translate-selected'
+export { OlTranslateSelected } from './ol-translate-selected'
 export {
   OlTranslate,
   OlLayerTranslate,

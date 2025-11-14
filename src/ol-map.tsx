@@ -1,8 +1,6 @@
 import React, {
   createContext,
-  forwardRef,
   type ReactNode,
-  type Ref,
   useContext,
   useEffect,
   useImperativeHandle,
@@ -12,13 +10,19 @@ import React, {
 import { Map } from 'ol'
 import type { MapOptions } from 'ol/Map'
 
+type MapProps = {
+  children?: ReactNode
+  initialOptions?: MapOptions
+  ref?: React.RefObject<Map | null>
+}
+
 /**
  * OpenLayers Map component that provides a React wrapper around the OpenLayers Map class.
  * Creates a map container and provides the map instance to child components via context.
  *
  * @param props.children - Child components to render within the map context
  * @param props.initialOptions - Initial configuration options for the OpenLayers Map instance
- * @param ref - Forwarded ref to expose the Map instance
+ * @param props.ref - Ref to expose the Map instance
  *
  * @example
  * ```tsx
@@ -28,18 +32,9 @@ import type { MapOptions } from 'ol/Map'
  * </OlMap>
  * ```
  */
-export const OlMap = forwardRef(OlMapComponent)
-
-type MapProps = {
-  children?: ReactNode
-  initialOptions?: MapOptions
-}
-function OlMapComponent(
-  { children, initialOptions }: MapProps,
-  forwardedRef: Ref<Map | null>
-) {
+export function OlMap({ children, initialOptions, ref }: MapProps) {
   const [map] = useState<Map>(() => new Map(initialOptions))
-  useImperativeHandle(forwardedRef, () => map, [map])
+  useImperativeHandle(ref, () => map, [map])
 
   const mapRef = useRef<HTMLDivElement | null>(null)
 

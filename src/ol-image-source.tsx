@@ -1,10 +1,4 @@
-import React, {
-  forwardRef,
-  type Ref,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react'
+import React, { useEffect, useImperativeHandle, useState } from 'react'
 import ImageSource, {
   type Options as ImageSourceOptions,
 } from 'ol-ext/source/GeoImage'
@@ -14,6 +8,7 @@ import { useOlImageLayer } from './ol-layer-geo-image'
 type OlImageSourceProps = Omit<ImageSourceOptions, 'imageMask'> & {
   imageMask?: ImageSourceOptions['imageMask']
   imageOpacity?: number
+  ref?: React.RefObject<ImageSourceType>
 }
 
 type ImageSourceType = InstanceType<typeof ImageSource>
@@ -29,7 +24,7 @@ type ImageSourceType = InstanceType<typeof ImageSource>
  * @param props.imageRotate - Rotation angle in radians (reactive)
  * @param props.imageOpacity - Opacity value between 0 and 1
  * @param props.imageMask - Optional mask for the image
- * @param ref - Forwarded ref to expose the GeoImage source instance
+ * @param props.ref - Ref to expose the GeoImage source instance
  *
  * @example
  * ```tsx
@@ -44,17 +39,15 @@ type ImageSourceType = InstanceType<typeof ImageSource>
  * </OlImageLayer>
  * ```
  */
-export const OlImageSource = forwardRef(function OlImageSource(
-  {
-    url,
-    imageCenter,
-    imageScale,
-    imageRotate,
-    imageOpacity,
-    ...otherProperties
-  }: OlImageSourceProps,
-  forwardedRef: Ref<ImageSourceType>
-) {
+export function OlImageSource({
+  url,
+  imageCenter,
+  imageScale,
+  imageRotate,
+  imageOpacity,
+  ref,
+  ...otherProperties
+}: OlImageSourceProps) {
   const [source] = useState(
     () =>
       new ImageSource({
@@ -65,7 +58,7 @@ export const OlImageSource = forwardRef(function OlImageSource(
         ...otherProperties,
       } as ImageSourceOptions)
   )
-  useImperativeHandle(forwardedRef, () => source, [source])
+  useImperativeHandle(ref, () => source, [source])
 
   const imageLayer = useOlImageLayer()
 
@@ -98,4 +91,4 @@ export const OlImageSource = forwardRef(function OlImageSource(
   }, [imageLayer, imageOpacity])
 
   return null
-})
+}

@@ -1,7 +1,5 @@
 import React, {
-  forwardRef,
   type PropsWithChildren,
-  type Ref,
   useEffect,
   useImperativeHandle,
   useState,
@@ -20,6 +18,7 @@ import {
 
 type OlModifyProps = PropsWithChildren<{
   initialOptions?: Partial<ModifyOptions>
+  ref?: React.Ref<Modify | null>
 }>
 
 /**
@@ -28,7 +27,7 @@ type OlModifyProps = PropsWithChildren<{
  *
  * @param props.initialOptions - Configuration options for the modify interaction
  * @param props.children - Child components
- * @param ref - Forwarded ref to expose the Modify interaction instance
+ * @param props.ref - Ref to expose the Modify interaction instance
  *
  * @example
  * ```tsx
@@ -39,21 +38,12 @@ type OlModifyProps = PropsWithChildren<{
  * </OlVectorSource>
  * ```
  */
-export const OlFeatureModify = forwardRef<Modify | null, OlModifyProps>(
-  OlFeatureModifyComponent
-)
-
-function OlFeatureModifyComponent(
-  props: OlModifyProps,
-  forwardedRef: Ref<Modify | null>
-) {
+export function OlFeatureModify(props: OlModifyProps) {
   const [modify, setModify] = useState<Modify | null>(null)
 
-  useImperativeHandle<Modify | null, Modify | null>(
-    forwardedRef,
-    () => modify,
-    [modify]
-  )
+  useImperativeHandle<Modify | null, Modify | null>(props.ref, () => modify!, [
+    modify,
+  ])
 
   useEffect(() => {
     if (!modify) return

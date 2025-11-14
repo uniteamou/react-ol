@@ -1,13 +1,12 @@
-import React, {
-  forwardRef,
-  type Ref,
-  useEffect,
-  useImperativeHandle,
-  useState,
-} from 'react'
+import React, { useEffect, useImperativeHandle, useState } from 'react'
 import TileArcGISRest, { type Options } from 'ol/source/TileArcGISRest'
 
 import { useOlTileLayer } from './ol-tile-layer'
+
+type OlTileSouceProps = {
+  initialOptions?: Options
+  ref?: React.RefObject<TileArcGISRest | null>
+}
 
 /**
  * OpenLayers tile source component for ArcGIS REST services.
@@ -15,7 +14,7 @@ import { useOlTileLayer } from './ol-tile-layer'
  * Must be used as a child of OlTileLayer.
  *
  * @param props.initialOptions - Configuration options for the ArcGIS REST source
- * @param ref - Forwarded ref to expose the TileArcGISRest instance
+ * @param props.ref - Ref to expose the TileArcGISRest instance
  *
  * @example
  * ```tsx
@@ -29,19 +28,12 @@ import { useOlTileLayer } from './ol-tile-layer'
  * </OlTileLayer>
  * ```
  */
-export const OlSourceTileArcGISRest = forwardRef(
-  OlSourceTileArcGISRestComponent
-)
-
-type OlTileSouceProps = {
-  initialOptions?: Options
-}
-function OlSourceTileArcGISRestComponent(
-  { initialOptions }: OlTileSouceProps,
-  forwardedRef: Ref<TileArcGISRest | null>
-) {
+export function OlSourceTileArcGISRest({
+  initialOptions,
+  ref,
+}: OlTileSouceProps) {
   const [tileSource] = useState(() => new TileArcGISRest(initialOptions))
-  useImperativeHandle(forwardedRef, () => tileSource, [tileSource])
+  useImperativeHandle(ref, () => tileSource, [tileSource])
   const layer = useOlTileLayer()
 
   useEffect(() => {
