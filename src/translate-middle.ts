@@ -57,7 +57,7 @@ export class TranslateMiddle extends Translate {
     this.features = options?.features ?? null
   }
 
-  protected override handleDownEvent(event: MapBrowserEvent<UIEvent>): boolean {
+  protected override handleDownEvent(event: MapBrowserEvent): boolean {
     if (!event.originalEvent) return false
     this.lastFeature = this.featuresAtPixel(event.pixel, event.map)
     const isInitialDownEvent = this.lastFeature && !this.lastCoordinate
@@ -97,7 +97,7 @@ export class TranslateMiddle extends Translate {
     return true
   }
 
-  protected override handleUpEvent(event: MapBrowserEvent<UIEvent>): boolean {
+  protected override handleUpEvent(event: MapBrowserEvent): boolean {
     if (!this.lastCoordinate) return false
     this.lastCoordinate = null
     this.handleMoveEvent(event)
@@ -120,7 +120,7 @@ export class TranslateMiddle extends Translate {
     return true
   }
 
-  protected override handleDragEvent(event: MapBrowserEvent<UIEvent>): void {
+  protected override handleDragEvent(event: MapBrowserEvent): void {
     if (!this.lastCoordinate) return
 
     const newCoordinate = event.coordinate

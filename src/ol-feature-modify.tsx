@@ -49,7 +49,11 @@ function OlFeatureModifyComponent(
 ) {
   const [modify, setModify] = useState<Modify | null>(null)
 
-  useImperativeHandle(forwardedRef, () => modify, [modify])
+  useImperativeHandle<Modify | null, Modify | null>(
+    forwardedRef,
+    () => modify,
+    [modify]
+  )
 
   useEffect(() => {
     if (!modify) return
