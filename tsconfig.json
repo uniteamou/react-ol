@@ -16,7 +16,7 @@
     "noUncheckedIndexedAccess": true,
     "noImplicitOverride": true,
     "noUnusedParameters": true,
-    "noUnusedLocals": false
+    "noUnusedLocals": false,
 
     /* If transpiling with TypeScript: */
     "module": "esnext",
