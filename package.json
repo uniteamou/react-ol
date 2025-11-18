@@ -1,6 +1,6 @@
 {
   "name": "@uniteamou/react-ol",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "A lightweight React wrapper for OpenLayers — build interactive maps declaratively using components and hooks.",
   "type": "module",
   "sideEffects": false,
