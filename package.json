@@ -46,7 +46,8 @@
     "lint": "eslint ./src/*",
     "format": "prettier ./src/* --write",
     "prepack": "npm run build",
-    "docs:generate": "typedoc",
+    "docs:replace-tags": "node --loader ts-node/esm scripts/replace-tag-placeholders.ts",
+    "docs:generate": "npm run docs:replace-tags && typedoc",
     "docs:clean": "del-cli ./docs_generated",
     "docs:build": "npm run docs:clean && npm run docs:generate"
   },
