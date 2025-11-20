@@ -1,7 +1,9 @@
 # 🗺️ React OL
 
-[![npm version](https://img.shields.io/npm/v/@uniteamou/react-ol.svg?color=brightgreen)](https://www.npmjs.com/package/@uniteamou/react-ol)
-[![build](https://github.com/uniteamou/react-ol/actions/workflows/ci.yml/badge.svg)](https://github.com/uniteamou/react-ol/actions)
+![React](https://img.shields.io/badge/React-19.2.0-61dafb?logo=react&logoColor=white)
+![OpenLayers](https://img.shields.io/badge/OpenLayers-%E2%89%A5%2010.7-3e8acc)
+![Node](https://img.shields.io/badge/Node.js-%E2%89%A5%2024-339933?logo=node.js&logoColor=white)
+![NPM](https://img.shields.io/badge/npm-%E2%89%A5%2011-cb0000?logo=npm&logoColor=white)
 [![license](https://img.shields.io/github/license/uniteamou/react-ol)](https://github.com/uniteamou/react-ol/blob/main/LICENSE)
 
 React OL is a **React component library for [OpenLayers](https://openlayers.org/)** — bringing declarative, hook-driven mapping to your React apps.
