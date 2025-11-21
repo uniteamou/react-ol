@@ -7,7 +7,7 @@ title: "getCoordinatesFromGeometry"
 
 > **getCoordinatesFromGeometry**(`g`): `Coordinate`[]
 
-Defined in: [src/geometry.ts:58](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/geometry.ts#L58)
+Defined in: [src/geometry.ts:58](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/geometry.ts#L58)
 
 Extracts all coordinates from a geometry object, flattening nested structures.
 Handles geometry collections and all geometry types, returning a flat array of coordinates.

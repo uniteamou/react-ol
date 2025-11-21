@@ -7,7 +7,7 @@ title: "highlightStyleFunction"
 
 > **highlightStyleFunction**(`styleFn`): `StyleFunction`
 
-Defined in: [src/feature-styles.ts:72](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/feature-styles.ts#L72)
+Defined in: [src/feature-styles.ts:72](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/feature-styles.ts#L72)
 
 Higher-order style function that wraps another style function to add highlight capability.
 Applies a blue highlight stroke when the feature has `shouldHighlight` property set to true.

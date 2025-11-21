@@ -7,7 +7,7 @@ title: "styleWithTranslateAnchorsGeometry"
 
 > **styleWithTranslateAnchorsGeometry**(`feature`): `Style`[]
 
-Defined in: [src/ol-feature-translate-anchors.tsx:57](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/ol-feature-translate-anchors.tsx#L57)
+Defined in: [src/ol-feature-translate-anchors.tsx:57](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/ol-feature-translate-anchors.tsx#L57)
 
 Style function that generates anchor point styles at the middle of each line segment.
 Returns an array of styles, one for each segment midpoint.

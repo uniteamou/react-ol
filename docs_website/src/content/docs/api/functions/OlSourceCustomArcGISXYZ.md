@@ -7,7 +7,7 @@ title: "OlSourceCustomArcGISXYZ"
 
 > **OlSourceCustomArcGISXYZ**(`__namedParameters`): `Element`
 
-Defined in: [src/ol-source-custom-arcgis-xyz.tsx:90](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/ol-source-custom-arcgis-xyz.tsx#L90)
+Defined in: [src/ol-source-custom-arcgis-xyz.tsx:90](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/ol-source-custom-arcgis-xyz.tsx#L90)
 
 OpenLayers tile source component for ArcGIS Image Server using XYZ tile scheme with custom BBOX export.
 Generates tile URLs with BBOX parameters for ArcGIS export endpoints.

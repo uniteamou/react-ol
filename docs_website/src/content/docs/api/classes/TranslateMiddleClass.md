@@ -5,7 +5,7 @@ prev: true
 title: "TranslateMiddleClass"
 ---
 
-Defined in: [src/translate-middle.ts:46](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/translate-middle.ts#L46)
+Defined in: [src/translate-middle.ts:46](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/translate-middle.ts#L46)
 
 Custom OpenLayers Translate interaction that enables dragging line segment midpoints.
 Extends the standard Translate interaction to detect clicks on segment midpoints
@@ -31,7 +31,7 @@ map.addInteraction(translateMiddle)
 
 > **new TranslateMiddleClass**(`options?`): `TranslateMiddle`
 
-Defined in: [src/translate-middle.ts:54](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/translate-middle.ts#L54)
+Defined in: [src/translate-middle.ts:54](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/translate-middle.ts#L54)
 
 #### Parameters
 
@@ -220,7 +220,7 @@ Clean up.
 
 > **featuresAtPixel**(`pixel`, `map`): `Feature`\<`Geometry`\> \| `null` \| `undefined`
 
-Defined in: [src/translate-middle.ts:253](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/translate-middle.ts#L253)
+Defined in: [src/translate-middle.ts:253](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/translate-middle.ts#L253)
 
 Copy of translate private method featuresAtPixel_ *
 
@@ -646,7 +646,7 @@ Listener.
 
 > **requireCoordinate**(`coordinate?`): \[`number`, `number`\]
 
-Defined in: [src/translate-middle.ts:274](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/translate-middle.ts#L274)
+Defined in: [src/translate-middle.ts:274](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/translate-middle.ts#L274)
 
 #### Parameters
 
@@ -664,7 +664,7 @@ Defined in: [src/translate-middle.ts:274](https://github.com/uniteamou/react-ol/
 
 > **requirePixel**(`pixel?`): \[`number`, `number`\]
 
-Defined in: [src/translate-middle.ts:268](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/translate-middle.ts#L268)
+Defined in: [src/translate-middle.ts:268](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/translate-middle.ts#L268)
 
 #### Parameters
 

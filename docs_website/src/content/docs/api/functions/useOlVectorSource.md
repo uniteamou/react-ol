@@ -7,7 +7,7 @@ title: "useOlVectorSource"
 
 > **useOlVectorSource**(): `OlVectorSourceType`
 
-Defined in: [src/ol-vector-source.tsx:82](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/ol-vector-source.tsx#L82)
+Defined in: [src/ol-vector-source.tsx:82](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/ol-vector-source.tsx#L82)
 
 Hook to access the OpenLayers VectorSource instance from the nearest parent OlVectorSource component.
 Must be used within a descendant of OlVectorSource.

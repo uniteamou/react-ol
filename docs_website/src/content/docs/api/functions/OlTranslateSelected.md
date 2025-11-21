@@ -7,7 +7,7 @@ title: "OlTranslateSelected"
 
 > **OlTranslateSelected**(`props`): `Element`
 
-Defined in: [src/ol-translate-selected.tsx:28](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/ol-translate-selected.tsx#L28)
+Defined in: [src/ol-translate-selected.tsx:28](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/ol-translate-selected.tsx#L28)
 
 Translate interaction component that automatically translates currently selected features.
 Integrates with OlSelect to provide translate capabilities for the active selection.

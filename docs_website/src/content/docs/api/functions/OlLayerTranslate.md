@@ -7,7 +7,7 @@ title: "OlLayerTranslate"
 
 > **OlLayerTranslate**(`props`): `Element`
 
-Defined in: [src/ol-translate.tsx:81](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/ol-translate.tsx#L81)
+Defined in: [src/ol-translate.tsx:81](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/ol-translate.tsx#L81)
 
 Translate interaction component scoped to a specific vector layer.
 Automatically configures the translate interaction to only move features from the parent layer.

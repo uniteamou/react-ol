@@ -7,7 +7,7 @@ title: "styleWithModifyGeometryScale"
 
 > **styleWithModifyGeometryScale**(`feature`): `Style` \| `null` \| `undefined`
 
-Defined in: [src/ol-feature-modify-scale.tsx:142](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/ol-feature-modify-scale.tsx#L142)
+Defined in: [src/ol-feature-modify-scale.tsx:142](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/ol-feature-modify-scale.tsx#L142)
 
 Style function that generates scale handle styles around feature geometries.
 Displays draggable points positioned outside a minimum radius from the feature's center,

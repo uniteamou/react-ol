@@ -7,7 +7,7 @@ title: "TranslateListener"
 
 > **TranslateListener** = (`event`) => `unknown`
 
-Defined in: [src/use-ol-translate-event-listener.tsx:19](https://github.com/uniteamou/react-ol/blob/3f767694adb5937d1c7dc3bd153f41afe35b318a/src/use-ol-translate-event-listener.tsx#L19)
+Defined in: [src/use-ol-translate-event-listener.tsx:19](https://github.com/uniteamou/react-ol/blob/2b026b1e812953582bf7e9abe5a1a6f3952cb2ce/src/use-ol-translate-event-listener.tsx#L19)
 
 Type for translate event listener callback functions.
 
