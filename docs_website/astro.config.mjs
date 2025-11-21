@@ -1,12 +1,22 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
+import starlightTypeDoc, { typeDocSidebarGroup } from 'starlight-typedoc'
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'My Docs',
+      title: 'React OL',
+      plugins: [
+        starlightTypeDoc({
+          entryPoints: ['../src/index.ts'],
+          tsconfig: '../tsconfig.json',
+          pagination: true,
+          sidebar: { collapsed: true },
+          watch: true,
+        }),
+      ],
       social: [
         {
           icon: 'github',
@@ -19,10 +29,7 @@ export default defineConfig({
           label: 'Guides',
           autogenerate: { directory: 'guides' },
         },
-        {
-          label: 'Reference',
-          autogenerate: { directory: 'reference' },
-        },
+        typeDocSidebarGroup,
       ],
     }),
   ],

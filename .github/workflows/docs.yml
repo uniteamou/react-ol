@@ -29,11 +29,14 @@ jobs:
           node-version: "24.10.0"
           cache: "npm"
 
-      - name: Install dependencies
+      - name: Install root dependencies
         run: npm ci
 
-      - name: Generate API documentation
-        run: npm run docs:generate
+      - name: Install docs dependencies
+        run: npm --prefix docs_website ci
+
+      - name: Build Astro docs
+        run: npm run docs:build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -43,7 +46,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs_generated
+          path: ./docs_website/dist
 
   deploy:
     environment:
