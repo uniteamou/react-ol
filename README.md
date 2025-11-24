@@ -22,6 +22,88 @@ Ideal for modern web mapping apps, dashboards, and GIS tools.
 
 ---
 
+## 🎯 Motivation
+
+### Why react-ol?
+OpenLayers is a powerful and feature-rich mapping library for JavaScript, but integrating it into React applications presents significant challenges. The library's imperative API and lifecycle management clash with React's declarative, component-based philosophy, creating friction that slows development and introduces complexity. react-ol bridges this gap by wrapping OpenLayers in idiomatic React components, making map development feel natural and intuitive for React developers
+
+### Core problems with Vanilla OpenLayers in React
+- messy object management
+- lots of boilerplate
+- manual event handling
+- hard to keep state in sync
+
+### How react-ol helps
+react-ol wraps OpenLayers objects as pure React components. This means clean, declarative code, automatic lifecycle management, built-in state sync, and far less boilerplate. You get code that’s easier to read and update, with faster onboarding and fewer architecture headaches.
+
+***Imperative OpenLayers (Vanilla React)***
+```tsx
+function OpenLayersMap() {
+  const mapRef = useRef();
+  const [view] = useState(() => new View(otherOptions))
+
+  useEffect(() => {
+    const map = new Map({
+      target: mapRef.current,
+      layers: [
+        new TileLayer({ source: new OSM() }),
+      ],
+      view: new View({
+        center: [0, 0],
+        zoom: 2,
+      }),
+    });
+
+    // Cleanup
+    return () => {
+      map.setTarget(null);
+    };
+  }, []);
+
+  useEffect(() => {
+    map.setView(view)
+  }, [map, view])
+
+  useEffect(() => {
+    if (center && view) view.setCenter(center)
+  }, [center, view])
+
+  useEffect(() => {
+    if (zoom && view) view.setZoom(zoom)
+  }, [zoom, view])
+
+  useEffect(() => {
+    if (rotation && view) view.setRotation(rotation)
+  }, [rotation, view])
+
+  return <div ref={mapRef} style={{ width: "100%", height: 400 }} />;
+}
+```
+
+***Declarative react-ol Approach***
+```tsx
+function Map() {
+  return (
+    <div style={{ width: '100%', height: '100%' }}>
+      <h1 style={{ position: 'absolute', top: 10, left: 10, zIndex: 1000, background: 'white', padding: '10px', borderRadius: '4px' }}>
+        React OpenLayers Example
+      </h1>
+      <OlMap>
+        <OlView
+          center={[0, 0]}
+          zoom={2}
+        />
+        <OlTileLayer>
+          <OlSourceOSM />
+        </OlTileLayer>
+      </OlMap>
+    </div>
+  );
+}
+```
+
+---
+
 ## 🚀 Installation
 
 Install from npm:
