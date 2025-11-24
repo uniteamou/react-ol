@@ -36,5 +36,5 @@
     "jsx": "react-jsx",
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "lib", "**/*.test.ts", "**/*.test.tsx"]
+  "exclude": ["node_modules", "lib", "**/*.test.ts", "**/*.test.tsx", "examples", "docs_website"]
 }
